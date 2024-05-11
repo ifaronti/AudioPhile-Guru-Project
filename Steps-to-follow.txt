@@ -1,0 +1,4 @@
+*Remember You'll need framer motion for the effects you want*!!
+
+Design the nav page and figure where you want to put it: On each page's component or 
+a global component.

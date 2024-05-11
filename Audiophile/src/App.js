@@ -1,6 +1,9 @@
-
+import HomePage from "./components/home-page/Home";
 export default function App() {
+
     return (
-      <p className="w font-extrabold text-[10rem] text-cyan-800">Ready Project</p>
+      <main className="relative w-[1440px] my-0 mx-auto min-h-[100vh]">
+        <HomePage/>
+      </main>
   );
 }

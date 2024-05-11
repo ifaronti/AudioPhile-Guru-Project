@@ -2,7 +2,26 @@
 module.exports = {
   content: [ "./src/**/*.{js,jsx,ts,tsx}", "./index.html"],
   theme: {
-    extend: {},
+    fontFamily:{
+      'Manrope-Bold':['Manrope-Bold'],
+      'Maronpe-Medium':[ 'Manrope-Medium' ],
+      'Manrope-Regular':['Manrope-Regular'],
+      'Manrope-Light':['Manrope-Regular']
+    },
+    extend: {
+
+    },
+    screens: {
+      'sm': '320px',
+
+      'md': '640px',
+
+      'lg': '900px',
+
+      'xl': '1280px',
+
+      '2xl': '1536px',
+    }
   },
   plugins: [],
 }

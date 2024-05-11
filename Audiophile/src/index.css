@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: Manrope-Bold;
+    src: url(../public/assets/fonts/Manrope-Bold.ttf);
+}
+@font-face {
+    font-family: Manrope-Regular;
+    src: url(../public/assets/fonts/Manrope-Regular.ttf);
+}
+@font-face {
+    font-family: Manrope-Medium;
+    src: url(../public/assets/fonts/Manrope-Medium.ttf);
+}
+@font-face {
+    font-family: Manrope-Light;
+    src: url(../public/assets/fonts/Manrope-Light.ttf);
+}
