@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CheckoutInput from "./input";
 import { headLabel, header } from "./checkoutExports";
+import changeBilling from '../features/billingSlice'
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Billing(){
+    const dispatch = useDispatch()
     const [error, setError] = useState({
         phone:false,
         name:false,
@@ -16,23 +19,52 @@ export default function Billing(){
 
     function handleChange(e){
         const {name, value} = e.target
-        setBillingData(prev=>{
-            return {
-                ...prev,
-                [name]:value
-            }
-        })
-        setError(prev=>{
-            return {...prev, [name]:false}
-        })
+        if(!e.target.validity.valid){
+            setError(prev=>{
+                return {...prev, [name]:true}
+            })
+            setBillingData(prev=>{
+                return{
+                    ...prev,
+                    [name]:value
+                }
+            })
+        }
+        else{
+            setError(prev=>{
+                return {...prev, [name]:false}
+            })
+            setBillingData(prev=>{
+                return{
+                    ...prev,
+                    [name]:value
+                }
+            })
+        }
     }
+
+    const checkBilling = ()=>{
+        if(billingData.name && billingData.email && billingData.phone && !error.name &&!error.email && !error.phone){
+            dispatch(changeBilling(billingData))
+        }
+    }
+
+    useEffect(()=>{
+        checkBilling()
+    },[billingData])
 
     function handleOnBlur(e){
         const {name} = e.target
-        return e.target.validity.valid ? setError(prev=>prev): setError(prev => {
-            return {...prev, [name]:true}
-        })
+        if(e.target.validity.valid){
+            setError(prev=>prev)
+        } 
+        else{
+            setError(prev => {
+                return {...prev, [name]:true}
+            })
+        }
     }
+    
     const billing = 
         <div className="md:w-[634px] sm:mb-[32px] md:mb-[53px] mx-auto sm:w-[280px]">
             {header}
@@ -53,7 +85,7 @@ export default function Billing(){
                     error={error.email}
                     id={'email'}
                     pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
-                    placeholder={'cuntsRus@gmail.com'}
+                    placeholder={'cuntass@gmail.com'}
                     type={'email'}
                     label={'Email Address'}
                     onchange={handleChange}

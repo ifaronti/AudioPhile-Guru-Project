@@ -10,6 +10,10 @@ export default function Summary(){
     const cartId = useSelector(state=>state.cartId.value) || localStorage.getItem('cartId')
     const dispatch = useDispatch()
 
+    const payment = useSelector(state=>state.payment.value)
+    const reduxShipping = useSelector(state=>state.shipping.value)
+    const billing = useSelector(state=>state.billing.value)
+
     useEffect(()=>{
         const getCart = async()=>{
             try{

@@ -18,9 +18,22 @@ export default function DetailCard({id}){
 
     const dispatch = useDispatch()
 
+    const cartCompare = async(cartItems)=>{
+        await cartItems
+        if(cartItems.some(item=>item.name===data.name)){
+            dispatch(changeInCart(true))
+            setIsInCart(true)
+        }
+        else{
+            dispatch(changeInCart(false))
+            setIsInCart(false)
+        }
+    }
+
     useEffect(()=>{
-        async function datali(data){
-            await data 
+        async function datali(data, cartItems){
+            await data
+            await cartItems
             if(data.name===undefined || !data.name){
                 return
             }
@@ -31,17 +44,10 @@ export default function DetailCard({id}){
                        id:data._id, 
                        slug:data.slug
                     })
-                    await data
+            
         }
-        if(cartItems.some(item=>item.name===data.name)){
-            dispatch(changeInCart(true))
-            setIsInCart(true)
-        }
-        else{
-            dispatch(changeInCart(false))
-            setIsInCart(false)
-        }
-        datali(data)
+        cartCompare(cartItems)
+        datali(data, cartItems)
        },[data, quantity])
 
     useEffect(()=>{

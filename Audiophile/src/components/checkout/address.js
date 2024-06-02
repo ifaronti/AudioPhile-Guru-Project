@@ -1,6 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CheckoutInput from "./input";
+import { changeShipping } from "../features/shippingSlice";
+import { useDispatch, useSelector } from "react-redux";
+
 export default function Address(){
+    const dispatch = useDispatch()
     const [error, setError] = useState({address:false, zip:false, city:false, country:false})
     const [shipTo, setShipTo] = useState({address:'', zipcode:'', city:'', country:''})
 
@@ -15,18 +19,28 @@ export default function Address(){
             setError(prev=>{
                 return {...prev, [name]:false}
             })
-        }
-    }
-
-    function handleOnBlur(e){
-        const {name, value} = e.target
-        if(e.target.validity.valid){
             setShipTo(prev=>{
-                return {
+                return{
                     ...prev,
                     [name]:value
                 }
             })
+        }
+    }
+
+    const checkAddress = ()=>{
+        if(shipTo.address && shipTo.zipcode && shipTo.city && shipTo.country){
+            dispatch(changeShipping(shipTo))
+        }
+    }
+
+    useEffect(()=>{
+        checkAddress()
+    },[shipTo])
+
+    function handleOnBlur(e){
+        const {name} = e.target
+        if(e.target.validity.valid){
             setError(prev=>prev)
         } 
         else{

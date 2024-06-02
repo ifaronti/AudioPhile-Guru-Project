@@ -8,6 +8,9 @@ import ownerSlice from "./ownerSlice";
 import cartId from "./cartID";
 import baseCart from "./databaseCart";
 import checkoutModal from "./checkoutModal";
+import billingSlice from "./billingSlice";
+import paymentSlice from "./paymentSlice";
+import shippingSlice from "./shippingSlice";
 
 export const theStore = configureStore({
     reducer:{
@@ -19,6 +22,9 @@ export const theStore = configureStore({
         cartId:cartId,
         data:currDataSlice,
         baseCart:baseCart,
-        checkoutModal:checkoutModal
+        checkoutModal:checkoutModal,
+        shipping:shippingSlice,
+        payment:paymentSlice,
+        billing:billingSlice
     }
 })

@@ -1,10 +1,13 @@
 import CheckoutInput from "./input";
 import { radioPayments } from "./checkoutExports";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import {changePayment} from '../features/paymentSlice'
 
 export default function Payment(){
     const [payment, setPayment] = useState({method:'', eNumber:'', ePin:''})
     const [error, setError] = useState({emoney:false, pin:false})
+    const dispatch = useDispatch()
 
     function handleChange(e){
         const {name, value, type} = e.target
@@ -19,6 +22,22 @@ export default function Payment(){
             })
         }
     }
+
+    const checkPayment = ()=>{
+        if(!payment.method){
+            return
+        }
+        if(payment.method ==='cash'){
+          return  dispatch(changePayment('cash'))
+        }
+        if(!error.emoney && !error.pin && payment.ePin && payment.eNumber){
+            return dispatch(changePayment(payment))
+        }
+    }
+
+    useEffect(()=>{
+        checkPayment()
+    },[payment])
 
     function handleOnBlur(e){
         const {name} = e.target
