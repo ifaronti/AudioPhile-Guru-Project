@@ -30,8 +30,11 @@ export default function Category({category, id}){
         getCat()
     },[category])
  
+    const shiftedData = pageData.filter(item=>item.new === true)
+    const newData = pageData.filter(item=> item.new===false)
+    const toRender = [...shiftedData, ...newData]
 
-    const pageOrder = pageData.map((product, index) =>{
+    const pageOrder = toRender.map((product, index) =>{
         return index%2 === 0 ? 
             <div key={index+1} className='xl:h-[560px] md:h-[671px] sm:h-[681px] xl:w-[1110px] sm:w-full mx-auto sm:gap-[32px] items-center md:gap-[52px] xl:gap-[125px] relative xl:flex-row flex sm:flex-col'>
                 {productImg(product.slug, media)}
