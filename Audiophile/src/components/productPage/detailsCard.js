@@ -34,6 +34,7 @@ export default function DetailCard({id}){
         async function datali(data, cartItems){
             await data
             await cartItems
+            await cartCompare(cartItems)
             if(data.name===undefined || !data.name){
                 return
             }
@@ -46,7 +47,6 @@ export default function DetailCard({id}){
                     })
             
         }
-        cartCompare(cartItems)
         datali(data, cartItems)
        },[data, quantity])
 
@@ -79,6 +79,7 @@ export default function DetailCard({id}){
             console.log(err.response)
         }
         setIsInCart(true)
+        window.location.reload()
     }
 
     const deleteFromCart = async(toCart)=>{
@@ -88,6 +89,7 @@ export default function DetailCard({id}){
         await inCart
         await axios.delete(`http://localhost:4000/audiophile/cart/${cartId}`, {data:{slug:data.slug}})
         setIsInCart(false)
+        window.location.reload()
     }
 
     return(

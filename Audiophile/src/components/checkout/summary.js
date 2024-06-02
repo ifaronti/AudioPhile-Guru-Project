@@ -14,6 +14,20 @@ export default function Summary(){
     const reduxShipping = useSelector(state=>state.shipping.value)
     const billing = useSelector(state=>state.billing.value)
 
+    const confirmValues= async()=>{
+        await payment
+        await reduxShipping
+        await billing
+        
+        if(payment.method === 'e-Money' && !payment.ePin || !billing.name){
+            return
+        }
+        if(!payment.method || !reduxShipping.address || !billing.name){
+            return
+        }
+        dispatch(checkModal(true))
+    }
+
     useEffect(()=>{
         const getCart = async()=>{
             try{
@@ -58,7 +72,7 @@ export default function Summary(){
                     <p className="text-[18px] text-[#D87D4A] font-Manrope-Bold">$ {cartItems.length>0?grandTotal:'0'}</p>
                 </article>
             </div>
-            <button onClick={()=>dispatch(checkModal(true))} className="bg-[#d87d4a] text-white font-Manrope-Bold tracking-[1px] text-[13px] xl:w-[284px] hover:bg-[#fbaf85] md:w-[623px] sm:w-[279px] h-[48px]">CONTINUE & PAY</button>
+            <button onClick={confirmValues} className="bg-[#d87d4a] text-white font-Manrope-Bold tracking-[1px] text-[13px] xl:w-[284px] hover:bg-[#fbaf85] md:w-[623px] sm:w-[279px] h-[48px]">CONTINUE & PAY</button>
         </div>
 
     return conatiner

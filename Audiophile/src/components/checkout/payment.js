@@ -21,6 +21,7 @@ export default function Payment(){
                 return{...prev, [name]:value}
             })
         }
+        console.log(payment)
     }
 
     const checkPayment = ()=>{
@@ -28,7 +29,7 @@ export default function Payment(){
             return
         }
         if(payment.method ==='cash'){
-          return  dispatch(changePayment('cash'))
+          return  dispatch(changePayment({method:'cash'}))
         }
         if(!error.emoney && !error.pin && payment.ePin && payment.eNumber){
             return dispatch(changePayment(payment))

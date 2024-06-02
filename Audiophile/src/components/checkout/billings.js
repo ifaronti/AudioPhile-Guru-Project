@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import CheckoutInput from "./input";
 import { headLabel, header } from "./checkoutExports";
-import changeBilling from '../features/billingSlice'
-import { useDispatch, useSelector } from "react-redux";
+import {changeBilling} from '../features/billingSlice'
+import { useDispatch } from "react-redux";
 
 export default function Billing(){
     const dispatch = useDispatch()
@@ -44,14 +44,14 @@ export default function Billing(){
     }
 
     const checkBilling = ()=>{
-        if(billingData.name && billingData.email && billingData.phone && !error.name &&!error.email && !error.phone){
+        if(billingData.name && billingData.email && billingData.phone && !error.name && !error.email && !error.phone){
             dispatch(changeBilling(billingData))
         }
     }
 
     useEffect(()=>{
         checkBilling()
-    },[billingData])
+    },[billingData, error])
 
     function handleOnBlur(e){
         const {name} = e.target
@@ -102,7 +102,7 @@ export default function Billing(){
                 onchange={handleChange}
                 value={billingData.phone}
                 onBlur={handleOnBlur}
-                pattern={/([0-9\s\-]{7,})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/}
+                pattern="(^[+]{1})?[0-9]{10,}"
             />
         </div>
 
