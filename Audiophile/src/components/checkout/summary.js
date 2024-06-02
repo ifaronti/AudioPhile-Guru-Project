@@ -22,7 +22,7 @@ export default function Summary(){
         if(payment.method === 'e-Money' && !payment.ePin || !billing.name){
             return
         }
-        if(!payment.method || !reduxShipping.address || !billing.name){
+        if(!payment.method || !reduxShipping.address || !billing.name || cartItems.length<1){
             return
         }
         dispatch(checkModal(true))
