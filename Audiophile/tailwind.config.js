@@ -12,16 +12,19 @@ module.exports = {
 
     },
     screens: {
-      'sm': '320px',
+      'sm': '350px',
 
-      'md': '640px',
+      'md': '700px',
 
-      'lg': '900px',
+      'lg': '849px',
 
-      'xl': '1280px',
+      'xl': '1200px',
 
       '2xl': '1536px',
     }
+  },
+  variants: {
+    fill: ['hover', 'focus'], // this line does the trick
   },
   plugins: [],
 }

@@ -18,3 +18,41 @@
     font-family: Manrope-Light;
     src: url(../public/assets/fonts/Manrope-Light.ttf);
 }
+
+body{
+    padding: 0;
+    margin: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    /* background-color: yellow; */
+}
+
+#ch5{
+    max-width: 5ch;
+}
+#ch10{
+    max-width: 10ch;
+}
+
+#ch12{
+    max-width: 12ch;
+}
+
+#address{
+    width: 634px !important;
+}
+
+#addressLabel{
+    width: 634px;
+}
+
+@media only screen and (max-width:700px) {
+    #address{
+        width: 280px !important;
+    }
+
+    #addressLabel{
+        width: 280px !important;
+    }
+}
