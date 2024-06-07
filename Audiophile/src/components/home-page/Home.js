@@ -3,16 +3,14 @@ import HomeSection3 from "./section3";
 import BestGear from "../general-components/bestGear";
 import Footer from "../general-components/footer";
 import Hero from "./hero";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {changeOwner} from '../features/ownerSlice'
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 import {changeCartId} from '../features/cartID'
 
 export default function HomePage(){
     const dispatch = useDispatch()
-     const cartOwner = useSelector(state => state.owner.value) || localStorage.getItem('cartOwner')
-     const cartId = useSelector(state => state.cartId.value) || localStorage.getItem('cartId')
     
     useEffect(()=>{
         const firstLoad = async()=>{
@@ -32,6 +30,7 @@ export default function HomePage(){
             }
         }
         firstLoad()
+        // eslint-disable-next-line
     }, [])
 
     return(

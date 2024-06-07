@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loadDatabase } from "./cartSlice";
 
 export const baseCart = createSlice({
     name:'databaseCart',

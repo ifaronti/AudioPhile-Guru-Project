@@ -28,6 +28,7 @@ export default function CartQuantity({item}){
 
     useEffect(()=>{
         serveQuantity()
+        // eslint-disable-next-line
     }, [quantity])
 
     const quantitySwitcher = 

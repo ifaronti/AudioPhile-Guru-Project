@@ -1,17 +1,24 @@
 import { useSelector, useDispatch } from "react-redux";
 import { icon } from "../checkout/checkoutExports";
-import { Link } from "react-router-dom";
 import { checkModal } from "../features/checkoutModal";
 import { checkOutModalItems } from "../checkout/checkoutExports";
 import { useState } from "react";
 import { confirmationNotes } from "../checkout/checkoutExports";
 import { formatFigures } from "../checkout/checkoutExports";
 import { theGrand } from "../checkout/checkoutExports";
+import { useNavigate } from "react-router-dom";
 
 export default function Confirmation(){
     const cart = useSelector(state=> state.baseCart.value)
     const dispatch = useDispatch()
     const [slice1, setSlice1] = useState(true)
+    const goTo = useNavigate()
+
+    const dispatcher = ()=>{
+        dispatch(checkModal(false))
+        goTo('/')
+        return
+    }
 
     const theSlice = slice1 ? cart.length-1: ''
 
@@ -36,9 +43,8 @@ export default function Confirmation(){
                 </div>
     
     const confirmationBtn = 
-            <Link to='/'>
-                <button onClick={()=>dispatch(checkModal(false))} className="md:w-[444px] md:mt-[16px] hover:bg-[#fbaf85] sm:w-[263px] bg-[#D87D4A] h-[48px] text-[13px] tracking-[1px] font-Manrope-Bold text-[white]">BACK TO HOME</button>
-            </Link>
+                <button onClick={dispatcher} className="md:w-[444px] md:mt-[16px] hover:bg-[#fbaf85] sm:w-[263px] bg-[#D87D4A] h-[48px] text-[13px] tracking-[1px] font-Manrope-Bold text-[white]">BACK TO HOME</button>
+    
 
     const confirmationContent = 
                 <div className="w-fit mx-auto relative flex flex-col md:gap-[33px] sm:gap-[24px] content-center sm:my-[32px] md:my-[48px]">

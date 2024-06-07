@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "@mui/material";
 import { QueryMedia } from "../general-components/mediaQuery";
+import { motion } from "framer-motion";
 
 export default function ZX9(){
     const dispatch = useDispatch()
@@ -19,6 +20,7 @@ export default function ZX9(){
     const media = QueryMedia(matchesSM, matchesMD, matchesXL)
 
     const zx9Speaker = 
+    <motion.div initial={{ opacity: 0}} transition={{ duration: 2.5 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
         <div className="xl:w-[1110px] overflow-hidden sm:w-[327px] md:w-[689px] relative flex items-center content-center rounded-lg p-0 xl:h-[560px] md:h-[720px] h-[720px] sm:h-[600px] bg-[#D87D4A]">
             <div className="absolute xl:left-[-9rem] md:left-[-7rem] md:w-[900px] sm:left-[-8rem] sm:top-[-8rem] sm:w-[580px] md:top-[-16rem] xl:top-[-2rem] xl:w-[944px] z-[1] ">{patternImg}</div>
             <article className="xl:absolute z-[50] sm:content-center xl:items-start sm:items-center sm:relative sm:gap-[unset] sm:flex-col xl:flex-row flex bottom-0 sm:ml-[0] xl:ml-[117.49px] w-full xl:gap-[139px]">
@@ -37,6 +39,7 @@ export default function ZX9(){
                 </div>
             </article>
         </div>
+    </motion.div>
 
         return zx9Speaker
 }

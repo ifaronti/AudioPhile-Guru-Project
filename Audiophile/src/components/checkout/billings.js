@@ -50,7 +50,9 @@ export default function Billing(){
     }
 
     useEffect(()=>{
+        
         checkBilling()
+        // eslint-disable-next-line
     },[billingData, error])
 
     function handleOnBlur(e){
@@ -70,39 +72,17 @@ export default function Billing(){
             {header}
             {headLabel}
             <div className="md:flex-row mb-[24px] flex sm:flex-col md:gap-[16px] sm:gap-[24px]">
-                <CheckoutInput
-                    error={error.name}
-                    id={'name'}
-                    pattern="[^0-9]*$"
-                    placeholder={'e.g Bonta Cuntas'}
-                    type={'text'}
-                    label={'Name'}
-                    onchange={handleChange}
-                    value={billingData.name}
-                    onBlur={handleOnBlur}
+                <CheckoutInput error={error.name} id={'name'} pattern="[^0-9]*$" placeholder={'e.g Bonta Cuntas'} type={'text'}
+                    label={'Name'} onchange={handleChange} value={billingData.name} onBlur={handleOnBlur}
                 />
-                <CheckoutInput
-                    error={error.email}
-                    id={'email'}
-                    pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
-                    placeholder={'cuntass@gmail.com'}
-                    type={'email'}
-                    label={'Email Address'}
-                    onchange={handleChange}
-                    value={billingData.email}
-                    onBlur={handleOnBlur}
+
+                <CheckoutInput error={error.email} id={'email'} pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" placeholder={'cuntass@gmail.com'}
+                    type={'email'} label={'Email Address'} onchange={handleChange} value={billingData.email} onBlur={handleOnBlur}
                 />
             </div>
-            <CheckoutInput
-                error={error.phone}
-                id={'phone'}
-                placeholder={'+1(204) 555-0136'}
-                type={'text'}
-                label={'Phone Number'}
-                onchange={handleChange}
-                value={billingData.phone}
-                onBlur={handleOnBlur}
-                pattern="(^[+]{1})?[0-9]{10,}"
+
+            <CheckoutInput error={error.phone} id={'phone'} placeholder={'+1(204) 555-0136'} type={'text'} label={'Phone Number'}
+                onchange={handleChange} value={billingData.phone} onBlur={handleOnBlur} pattern="(^[+]{1})?[0-9]{10,}"
             />
         </div>
 

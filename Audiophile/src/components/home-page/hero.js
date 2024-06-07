@@ -1,11 +1,8 @@
-import Cart from "../general-components/cart"
-import NavBar from "../general-components/nav"
 import SeeProduct from "../general-components/productBtn"
 import { useDispatch } from "react-redux"
 import { changePage } from "../features/pageSlice"
 import { Link } from "react-router-dom"
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { useState } from "react"
 import { QueryMedia } from "../general-components/mediaQuery"
 
 export default function Hero(){

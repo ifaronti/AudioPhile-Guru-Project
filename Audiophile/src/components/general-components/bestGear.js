@@ -1,5 +1,6 @@
 import { useMediaQuery } from "@mui/material";
 import { QueryMedia } from "../general-components/mediaQuery";
+import { motion } from "framer-motion";
 
 export default function BestGear(){
     const matchesSM = useMediaQuery('(max-width:700px)')
@@ -9,6 +10,12 @@ export default function BestGear(){
     const media = QueryMedia(matchesSM, matchesMD, matchesXL)
 
     return (
+        <motion.div 
+        initial={{ opacity: 0 }}
+        transition={{ duration: 2.5 }}
+        whileInView={{ opacity: 1, scale:1 }}
+        viewport={{ once: false}}
+        >
         <section className="sm:gap-[40px] relative md:gap-[63px] xl:gap-[125px] mx-auto sm:flex-col-reverse xl:flex-row sm:w-[327px] md:w-[89.713541666667%] xl:h-[588px] md:h-[633px] sm:h-[698px] flex xl:content-between xl:w-[1110px] items-center">
             <article>
                 <h6 className="sm:w-[327px] relative xl:w-[445px] md:w-[573px] md:text-[40px] xl:text-left sm:mx-auto sm:text-center md:tracking-[1.43px] md:leading-[44px] sm:text-[28px] sm:tracking-[1px] sm:leading-normal font-Manrope-Bold">
@@ -28,7 +35,6 @@ export default function BestGear(){
                 className=" relative sm:w-[327px] md:w-[650px] lg:w-[689px] xl:w-[588px] sm:h-[300px] xl:h-[588px] rounded-lg" 
             />
         </section>
+        </motion.div>
     )
 }
-
-//DON'T FORGET TO ADD VIBRATION EFFECTS TP SPEAKERS ON HOMEPAGE CATEGORY PAGE

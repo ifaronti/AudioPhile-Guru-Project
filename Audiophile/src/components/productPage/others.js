@@ -1,19 +1,17 @@
 import SeeProduct from "../general-components/productBtn"
-import { useDispatch, useSelector } from "react-redux"
-import { Link } from "react-router-dom"
+import { useDispatch} from "react-redux"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { changePage } from "../features/pageSlice"
 import { useNavigate } from "react-router-dom"
-import { changeInCart } from "../features/inCart"
 import { useMediaQuery } from "@mui/material";
 import {QueryMedia} from '../general-components/mediaQuery'
+import { motion } from "framer-motion"
 
 export default function MayLike({data}){
     const [id, setId] = useState('')
     const [category, setCategory] = useState('')
     const [slug, setSlug] = useState('')
-    const cartId = useSelector(state=>state.cartId.value) || localStorage.getItem('cartId')
 
     const matchesSM = useMediaQuery('(max-width:700px)')
     const matchesMD = useMediaQuery('(max-width:1149px)')
@@ -68,8 +66,8 @@ export default function MayLike({data}){
             }
         }
         getProduct()
+        // eslint-disable-next-line
     }, [slug])
-
 
     const content = data?.map((item, index) =>{
        return <article key={index+1} className="flex flex-col items-center">
@@ -79,9 +77,8 @@ export default function MayLike({data}){
                 className="xl:w-[350px] rounded-lg xl:h-[318px] md:w-[236px] md:h-[308.96px] sm:w-[327px] sm:h-[120px]"
             />
             <h4 className="mt-[40px] mb-[32px] font-Manrope-Bold text-[24px] tracking-[1.71px]">{item.name}</h4>
-            <Link>
-                <SeeProduct text={'SEE PRODUCT'} event={()=>dispatcher(item.slug)}/>
-            </Link>
+            <SeeProduct text={'SEE PRODUCT'} event={()=>dispatcher(item.slug)}/>
+           
         </article>
     })
 
@@ -89,10 +86,11 @@ export default function MayLike({data}){
         <section className="flex xl:gap-[30px] xl:w-[1110px] md:w-[89.713466%] sm:w-[327px] mx-auto sm:flex-col md:flex-row md:gap-[30px] sm:gap-[56px]">
             {content}
         </section>
+
     return(
-        <div>
+        <motion.div initial={{ opacity: 0, scale:0.9999999}} transition={{ duration: 2.5 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
             {youMay}
             {mayCard}
-        </div>
+        </motion.div>
     )
 }

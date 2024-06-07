@@ -11,9 +11,9 @@ export default function CardNamePrice({data, id}){
         {data.description}
         </p>
 
-    const productPrice = 
+    let productPrice = 
     <p className=" text-black font-Manrope-Bold text-[18px] leading-normal tracking-[1.29px]">
-        {'$'+data.price}
+        ${formatFigures(data.price)}
     </p>
     return( 
 

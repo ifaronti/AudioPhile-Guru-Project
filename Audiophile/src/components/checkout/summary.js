@@ -19,7 +19,7 @@ export default function Summary(){
         await reduxShipping
         await billing
         
-        if(payment.method === 'e-Money' && !payment.ePin || !billing.name){
+        if(payment.method === 'e-Money' && (!payment.ePin || !billing.name)){
             return
         }
         if(!payment.method || !reduxShipping.address || !billing.name || cartItems.length<1){
@@ -40,6 +40,7 @@ export default function Summary(){
             }
         }
         getCart()
+        // eslint-disable-next-line
     },[])
 
     const total = formatFigures(cartItems.map(item=> item.price*item.quantity).reduce((a, b)=> a+b, 0))

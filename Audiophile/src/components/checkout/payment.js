@@ -3,6 +3,7 @@ import { radioPayments } from "./checkoutExports";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {changePayment} from '../features/paymentSlice'
+import { cashNote } from "./checkoutExports";
 
 export default function Payment(){
     const [payment, setPayment] = useState({method:'', eNumber:'', ePin:''})
@@ -38,6 +39,7 @@ export default function Payment(){
 
     useEffect(()=>{
         checkPayment()
+        // eslint-disable-next-line
     },[payment])
 
     function handleOnBlur(e){
@@ -49,41 +51,16 @@ export default function Payment(){
         })
     }
 
-    const cashNote = 
-            <div className="w-fit mt-[24px] items-center mx-auto flex relative sm:flex-col md:flex-row sm:gap-[24px] md:gap-[32px]">
-                <img className="w-[48px] h-[48px]" src={`${process.env.PUBLIC_URL}/assets/checkout/icon-cash-on-delivery.svg`} alt="cash"/>
-                <p className="text-[15px] text-black opacity-50 leading-[25px] font-Maronpe-Medium md:w-[554px] sm:w-[285px]">
-                    The 'Cash on Delivery' option enables you to pay in cash when our delivery 
-                    courier arrives at your residence. Just make sure your address is 
-                    correct so that your order will not be cancelled.
-                </p>
-            </div>
-
     const emoneyInputs = 
         <div className="flex md:flex-row sm:flex-col md:gap-[16px] sm:gap-[24px] sm:mb-[32px] md:mb-[24px]">
-            <CheckoutInput
-                error={error.emoney}
-                id={'eNumber'}
-                placeholder={'364759034'}
-                type={'text'}
-                label={'e-Money Number'}
-                pattern={"[0-9]{9}"}
-                onBlur={handleOnBlur}
-                onchange={handleChange}
-                name='emoney'
+            <CheckoutInput error={error.emoney} id={'eNumber'} placeholder={'364759034'} type={'text'} label={'e-Money Number'}
+                pattern={"[0-9]{9}"} onBlur={handleOnBlur} onchange={handleChange} name='emoney'
             />
 
-            <CheckoutInput
-                error={error.pin}
-                id={'ePin'}
-                placeholder={'3646'}
-                type={'text'}
-                label={'e-Money PIN'}
-                pattern={"[0-9]{4}"}
-                onBlur={handleOnBlur}
-                onchange={handleChange}
-                name='pin'
+            <CheckoutInput error={error.pin} id={'ePin'} placeholder={'3646'} type={'text'} label={'e-Money PIN'}
+                pattern={"[0-9]{4}"} onBlur={handleOnBlur} onchange={handleChange} name='pin'
             />
+
         </div>
     
     const payments = 

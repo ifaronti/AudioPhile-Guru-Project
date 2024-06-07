@@ -1,5 +1,3 @@
-import NavBar from "./nav"
-import Cart from "./cart"
 
 export default function CatHero({headerText}){
     const hero = 

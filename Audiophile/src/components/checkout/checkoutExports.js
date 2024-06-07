@@ -124,6 +124,17 @@ export const theGrand = (total)=>{
     )
 }
 
+//cashNote is displayed when the cash option is selected as payment
+export const cashNote = 
+        <div className="w-fit mt-[24px] items-center mx-auto flex relative sm:flex-col md:flex-row sm:gap-[24px] md:gap-[32px]">
+            <img className="w-[48px] h-[48px]" src={`${process.env.PUBLIC_URL}/assets/checkout/icon-cash-on-delivery.svg`} alt="cash"/>
+            <p className="text-[15px] text-black opacity-50 leading-[25px] font-Maronpe-Medium md:w-[554px] sm:w-[285px]">
+                The 'Cash on Delivery' option enables you to pay in cash when our delivery 
+                courier arrives at your residence. Just make sure your address is 
+                correct so that your order will not be cancelled.
+            </p>
+        </div>
+
 //Below is the cart modal background component
 export default function Modal1(){
     const dispatch = useDispatch()

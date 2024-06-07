@@ -2,7 +2,6 @@ import {showModal} from '../features/modalSlice'
 import Items  from "./modalExports"
 import { useDispatch, useSelector } from 'react-redux'
 import B4Tax from './total'
-import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { changeInCart } from '../features/inCart'
@@ -13,9 +12,9 @@ export default function CartItems({data}){
     const cartId = useSelector(state=>state.cartId.value) || localStorage.getItem('cartId')
     const cartItems = useSelector(state=>state.baseCart.value)
 
-
     const theDispatcher = ()=>{
         dispatch(showModal(false))
+        goTo('/checkout')
         return
     }
 
@@ -46,9 +45,7 @@ export default function CartItems({data}){
                 <Items data={data}/>
                 <div className="flex-shrink-0 relative w-[313px] sm:pl-[1.3rem] md:pl-[unset] mx-auto">
                     <B4Tax/>
-                    <Link to='/checkout'>
-                        <button onClick={theDispatcher} className="bg-[#d87d4a] mx-auto relative sm:w-[271px] md:w-[313px] h-[48px] hover:bg-[#FBAF85] mb-[32px] text-white font-Manrope-Bold tracking-[1px] text-[13px]">CHECKOUT</button>
-                    </Link>
+                    <button onClick={theDispatcher} className="bg-[#d87d4a] mx-auto relative sm:w-[271px] md:w-[313px] h-[48px] hover:bg-[#FBAF85] mb-[32px] text-white font-Manrope-Bold tracking-[1px] text-[13px]">CHECKOUT</button>
                 </div>
             </div>
 

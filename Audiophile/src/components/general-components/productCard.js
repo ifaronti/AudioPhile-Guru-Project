@@ -1,9 +1,9 @@
 import SeeProduct from "./productBtn"
-import { Link } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { changePage } from "../features/pageSlice"
+import { useNavigate } from "react-router-dom"
 
-export default function ProductCard({name, category, productId, description, newProduct, event, id}){
+export default function ProductCard({name, category, productId, description, newProduct, id}){
     const heading = <p className="font-Manrope-Regular sm:mb-[24px] text-[#d87d4a] md:mb-[16px] sm:text-center xl:text-left text-[14px] opacity-50 tracking-[10px]">NEW PRODUCT</p>
     const itemName = 
             <h2 className="font-Manrope-Bold md:leading-[44px] xl:mx-[unset] md:tracking-[1.43px] xl:w-[572px] mx-auto sm:text-center sm:w-[327px] sm:text-[28px] md:text-[40px] sm:tracking-[1px] xl:text-left sm:leading-normal" id={id}>
@@ -11,10 +11,11 @@ export default function ProductCard({name, category, productId, description, new
             </h2>
 
     const dispatch = useDispatch()
+    const gotTo = useNavigate()
 
     function dispatcher(id){
         dispatch(changePage(id))
-    
+        gotTo(`/${category}/product/${id}`)
     }
 
     const itemDescription = 
@@ -24,9 +25,7 @@ export default function ProductCard({name, category, productId, description, new
     
     const seeProduct =
                 <div className="sm:mx-auto relative xl:mx-0">
-                   <Link to={`/${category}/product/${productId}`}> 
-                        <SeeProduct text={'SEE PRODUCT'} event={()=>dispatcher(productId)}/>
-                   </Link>
+                    <SeeProduct text={'SEE PRODUCT'} event={()=>dispatcher(productId)}/>
                 </div>
 
     return(

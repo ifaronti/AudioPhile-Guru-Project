@@ -35,7 +35,7 @@ export default function App() {
       localStorage.setItem('current', searchParam)
       getProduct()
 
-  },[searchParam])
+  },[searchParam, dispatch])
 
   return (
     <main className="2xl:w-[1440px] relative sm:w-full mb-[4px] bg-[#fafafa] my-0 mx-auto">
