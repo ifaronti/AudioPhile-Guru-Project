@@ -31,12 +31,12 @@ export default function Summary(){
     useEffect(()=>{
         const getCart = async()=>{
             try{
-                const {data} = await axios.get(`http://localhost:4000/audiophile/cart/${cartId}`)
+                const {data} = await axios.get(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart/${cartId}`)
                 setCartItems(data?.items.filter(items=>items.name))
                 dispatch(loadBase(data?.items.filter(items=>items.name)))
             }
             catch (err){
-                console.log(err)
+                
             }
         }
         getCart()

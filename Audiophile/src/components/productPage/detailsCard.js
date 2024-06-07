@@ -14,27 +14,39 @@ export default function DetailCard({id}){
     const [isInCart, setIsInCart] = useState(false)
     const cartId = useSelector(state =>state.cartId.value) || localStorage.getItem('cartId')
     const data = useSelector(state=>state.data.value)
-    const inCart = useSelector(state=>state.inCart.value)
-
     const dispatch = useDispatch()
+    const baseCart = useSelector(state=>state.baseCart.value)
+
+    useEffect(()=>{
+        const getCart = async()=>{
+            try{
+                const {data} = await axios.get(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart/${cartId}`)
+                setCartItems(data?.items.filter(items=>items.name))
+            }
+            catch (err){
+                console.log(err)
+            }
+        }
+        setQuantity(1)
+        getCart()
+    },[])
 
     const cartCompare = async(cartItems)=>{
         await cartItems
         if(cartItems.some(item=>item.name===data.name)){
-            dispatch(changeInCart(true))
             setIsInCart(true)
         }
         else{
-            dispatch(changeInCart(false))
             setIsInCart(false)
         }
     }
 
     useEffect(()=>{
-        async function datali(data, cartItems){
+        async function datali(data, isInCart, cartItems){
             await data
             await cartItems
             await cartCompare(cartItems)
+            await isInCart
             if(data.name===undefined || !data.name){
                 return
             }
@@ -47,22 +59,8 @@ export default function DetailCard({id}){
                     })
             
         }
-        datali(data, cartItems)
-       },[data, quantity])
-
-    useEffect(()=>{
-        const getCart = async()=>{
-            try{
-                const {data} = await axios.get(`http://localhost:4000/audiophile/cart/${cartId}`)
-                setCartItems(data?.items.filter(items=>items.name))
-            }
-            catch (err){
-                console.log(err)
-            }
-        }
-        setQuantity(1)
-        getCart()
-    },[])
+        datali(data, isInCart, cartItems)
+       },[data, quantity, cartItems])
 
     const putToCart = async()=>{
         await cartId
@@ -72,7 +70,7 @@ export default function DetailCard({id}){
                 return
             }
             if(!cartItems.some(item=>item.slug===toCart.slug)){
-                await axios.put(`http://localhost:4000/audiophile/cart/${cartId}`, toCart)
+                await axios.put(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart/${cartId}`, toCart)
             }
         }
         catch (err){
@@ -86,8 +84,7 @@ export default function DetailCard({id}){
         await data
         await cartId
         await toCart
-        await inCart
-        await axios.delete(`http://localhost:4000/audiophile/cart/${cartId}`, {data:{slug:data.slug}})
+        await axios.delete(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart/${cartId}`, {data:{slug:data.slug}})
         setIsInCart(false)
         window.location.reload()
     }

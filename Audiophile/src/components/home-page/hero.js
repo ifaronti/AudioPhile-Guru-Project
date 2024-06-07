@@ -22,7 +22,6 @@ export default function Hero(){
        return dispatch(changePage(id))
     }
 
-
     const itemDescribe = 
         <section className="xl:w-[77.0715%] md:mt-[216px] sm:mt-[198px] xl:mt-[225px] md:w-[49.348958333333%] flex flex-col sm:items-center sm:content-center w-[100%] h-[346px] xl:content-start xl:items-start relative">
             <p className="font-Manrope-Regular text-center xl:text-left text-[14px] opacity-50 h-[19px] tracking-[10px] text-white ">NEW PRODUCT</p>

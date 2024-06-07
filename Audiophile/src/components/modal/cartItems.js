@@ -25,7 +25,7 @@ export default function CartItems({data}){
             if(!cartId){
                 alert('cart id is not found in database. Click on the home menu')
             }
-            await axios.delete(`http://localhost:4000/audiophile/cart?id=${cartId}`)
+            await axios.delete(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart?id=${cartId}`)
         }
 
         catch (err){

@@ -1,4 +1,4 @@
-
+import { formatFigures } from "../checkout/checkoutExports"
 
 export default function CardNamePrice({data, id}){
     const toCartName = 

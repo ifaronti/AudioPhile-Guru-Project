@@ -33,7 +33,7 @@ export default function MayLike({data}){
         await category
         await id
         localStorage.setItem('current', id)
-        goTo(`/product/${category}/${id}`)
+        goTo(`/${category}/${id}`)
     }
 
     useEffect(()=>{
@@ -53,7 +53,7 @@ export default function MayLike({data}){
                     return
                 }
                 else{
-                    const theProduct = await axios.get(`http://localhost:4000/audiophile/products?slug=${slug}`)
+                    const theProduct = await axios.get(`${process.env.REACT_APP_AUDIOSHOPAPI}/products?slug=${slug}`)
                     let theObj
                     theProduct.data.products.map(item=> {
                       return theObj = {id:item._id, category:item.category, name:item.name}

@@ -2,22 +2,15 @@ import {useEffect, useState} from 'react'
 import Footer from '../general-components/footer'
 import BestGear from '../general-components/bestGear'
 import HomeSection2 from '../home-page/section2'
-import { Link } from 'react-router-dom'
 import axios from "axios";
 import FeaturesInBox from "./featureBox";
 import ProductImages from "./productImg";
 import MayLike from "./others";
 import ProductPageCard from "./pageCard";
-import {useSelector, useDispatch} from "react-redux";
-import { changeInCart } from "../features/inCart";
-import { loadBase } from "../features/databaseCart";
+import {useSelector} from "react-redux";
 
 export default function ProductPage(){
-
     const [box, setBox] = useState([])
-
-    const dispatch = useDispatch()
-    const inCart = useSelector(state=>state.inCart.value)
     const data = useSelector(state=>state.data.value)
 
     const searchParam = useSelector(state => state.page.value) || localStorage.getItem('current')
@@ -25,7 +18,7 @@ export default function ProductPage(){
     useEffect(()=>{
         const getProduct = async()=>{
             try{
-                const theData = await axios.get(`http://localhost:4000/audiophile/products/${searchParam}`)
+                const theData = await axios.get(`${process.env.REACT_APP_AUDIOSHOPAPI}/products/${searchParam}`)
                 setBox(theData.data.includes)
             }
             catch (err){
@@ -35,10 +28,7 @@ export default function ProductPage(){
         localStorage.setItem('current', searchParam)
         
         getProduct()
-        
-
     },[searchParam])
-
 
     return(
         <main className='sm:w-full mx-auto xl:w-[1440px] content-center items-center flex flex-col xl:gap-[160px] md:gap-[120px] sm:gap-[88px]'>

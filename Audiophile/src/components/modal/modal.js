@@ -16,7 +16,7 @@ export default function ModalCart(){
     useEffect(()=>{
         const getDataBaseCart = async()=>{
             try{
-                const{data} = await axios.get(`http://localhost:4000/audiophile/cart/${cartId}`)
+                const{data} = await axios.get(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart/${cartId}`)
                 setCartData(data?.items)
                 dispatch(loadBase(data?.items.filter(item=>item.name)))
             }

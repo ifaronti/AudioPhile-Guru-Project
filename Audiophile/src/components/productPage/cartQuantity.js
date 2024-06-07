@@ -19,7 +19,7 @@ export default function CartQuantity({item}){
     const serveQuantity = async()=>{
             await item
             try{
-                await axios.patch(`http://localhost:4000/audiophile/cart/${cartId}`, {name:item.name, quantity:quantity})
+                await axios.patch(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart/${cartId}`, {name:item.name, quantity:quantity})
             }
             catch(err){
                 console.log(err)

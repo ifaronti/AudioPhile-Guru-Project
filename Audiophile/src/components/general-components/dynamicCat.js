@@ -7,8 +7,7 @@ import { QueryMedia } from "./mediaQuery";
 
 export default function Category({category, id}){
     const [pageData, setPageData] = useState([])
-
-
+    
     const matchesSM = useMediaQuery('(max-width:700px)')
     const matchesMD = useMediaQuery('(max-width:1119px)')
     const matchesXL = useMediaQuery('(min-width:1120px)')
@@ -19,11 +18,11 @@ export default function Category({category, id}){
         const getCat = async()=>{
             try{
                 
-                const theCat = await axios.get(`http://localhost:4000/audiophile/products?category=${category}`)
+                const theCat = await axios.get(`${process.env.REACT_APP_AUDIOSHOPAPI}/products?category=${category}`)
                 setPageData(theCat.data.products)
             }
             catch (err){
-                console.log(err)
+        
             }
     
         }
@@ -58,9 +57,7 @@ export default function Category({category, id}){
                     productId={product?._id}
                 />
                 {productImg(product.slug, media)}
-            </div>
-            
+            </div>   
     })
-
     return pageOrder
 }

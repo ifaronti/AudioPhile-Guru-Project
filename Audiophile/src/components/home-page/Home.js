@@ -21,7 +21,7 @@ export default function HomePage(){
                     return
                 }
                 const owner = Math.floor(Math.random()*2000000000)
-                const {data} = await axios.post(`http://localhost:4000/audiophile/cart?createdBy=${owner}`)
+                const {data} = await axios.post(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart?createdBy=${owner}`)
                 localStorage.setItem('cartOwner', owner)
                 localStorage.setItem('cartId', data.id)
                 dispatch(changeOwner(owner))

@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom';
 export default function Footer(){
     const navLinks = 
         <div className="inline-flex justify-center w-[429px] md:flex-row mx-auto sm:gap-[16px] sm:flex-col items-center pr-0 xl:flex-row md:gap-[34px]">
-            <Link to='/'><button className="hover:text-[#D87D4A]  font-Manrope-Bold cursor-pointer text-[13px] tracking-[2px] text-[#ffffff]">HOME</button></Link>
-            <Link to='/headphones'><button value='headphones' className="hover:text-[#D87D4A]  font-Manrope-Bold cursor-pointer text-[13px] tracking-[2px] text-[#ffffff]">HEADPHONES</button></Link>
-            <Link to='/speakers'><button value='speakers' className="hover:text-[#D87D4A]  font-Manrope-Bold cursor-pointer text-[13px] tracking-[2px] text-[#ffffff]">SPEAKERS</button></Link>
-            <Link to='/earphones'><button value='earphones' className="hover:text-[#D87D4A]  font-Manrope-Bold cursor-pointer text-[13px] tracking-[2px] text-[#ffffff]">EARPHONES</button></Link>
+            <Link to='/'><ul className="list-none"><li className="hover:text-[#D87D4A]  font-Manrope-Bold cursor-pointer text-[13px] tracking-[2px] text-[#ffffff]">HOME</li></ul></Link>
+            <Link to='/headphones'><ul className="list-none"><li className="hover:text-[#D87D4A]  font-Manrope-Bold cursor-pointer text-[13px] tracking-[2px] text-[#ffffff]">HEADPHONES</li></ul></Link>
+            <Link to='/speakers'><ul className="list-none"><li className="hover:text-[#D87D4A]  font-Manrope-Bold cursor-pointer text-[13px] tracking-[2px] text-[#ffffff]">SPEAKERS</li></ul></Link>
+            <Link to='/earphones'><ul className="list-none"><li className="hover:text-[#D87D4A]  font-Manrope-Bold cursor-pointer text-[13px] tracking-[2px] text-[#ffffff]">EARPHONES</li></ul></Link>
         </div>
 
     const footerNote = 
