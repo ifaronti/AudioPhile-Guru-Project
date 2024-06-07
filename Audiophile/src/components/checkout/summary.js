@@ -14,6 +14,21 @@ export default function Summary(){
     const reduxShipping = useSelector(state=>state.shipping.value)
     const billing = useSelector(state=>state.billing.value)
 
+    const deleteCart = async()=>{
+        try{
+            await cartId
+            if(!cartId){
+                alert('cart id is not found in database. Click on the home menu')
+            }
+            await axios.delete(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart?id=${cartId}`)
+        }
+
+        catch (err){
+            console.log(err)
+        }
+        localStorage.clear()
+    }
+
     const confirmValues= async()=>{
         await payment
         await reduxShipping
@@ -26,6 +41,7 @@ export default function Summary(){
             return
         }
         dispatch(checkModal(true))
+        deleteCart()
     }
 
     useEffect(()=>{
@@ -73,7 +89,7 @@ export default function Summary(){
                     <p className="text-[18px] text-[#D87D4A] font-Manrope-Bold">$ {cartItems.length>0?grandTotal:'0'}</p>
                 </article>
             </div>
-            <button onClick={confirmValues} className="bg-[#d87d4a] text-white font-Manrope-Bold tracking-[1px] text-[13px] xl:w-[284px] hover:bg-[#fbaf85] md:w-[623px] sm:w-[279px] h-[48px]">CONTINUE & PAY</button>
+            <button disabled={!payment || !billing?  true:false} onClick={confirmValues} className="bg-[#d87d4a] disabled:bg-[#fbaf85] text-white font-Manrope-Bold tracking-[1px] text-[13px] xl:w-[284px] hover:bg-[#fbaf85] md:w-[623px] sm:w-[279px] h-[48px]">CONTINUE & PAY</button>
         </div>
 
     return conatiner

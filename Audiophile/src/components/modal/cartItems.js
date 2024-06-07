@@ -45,7 +45,7 @@ export default function CartItems({data}){
                 <Items data={data}/>
                 <div className="flex-shrink-0 relative w-[313px] sm:pl-[1.3rem] md:pl-[unset] mx-auto">
                     <B4Tax/>
-                    <button onClick={theDispatcher} className="bg-[#d87d4a] mx-auto relative sm:w-[271px] md:w-[313px] h-[48px] hover:bg-[#FBAF85] mb-[32px] text-white font-Manrope-Bold tracking-[1px] text-[13px]">CHECKOUT</button>
+                    <button disabled={cartItems.length<1 ? true:false} onClick={theDispatcher} className="bg-[#d87d4a] disabled:bg-[#fbaf85] mx-auto relative sm:w-[271px] md:w-[313px] h-[48px] hover:bg-[#FBAF85] mb-[32px] text-white font-Manrope-Bold tracking-[1px] text-[13px]">CHECKOUT</button>
                 </div>
             </div>
 
