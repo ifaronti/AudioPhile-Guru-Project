@@ -135,6 +135,20 @@ export const cashNote =
             </p>
         </div>
 
+export const costs = (total, cartItems, VAT, shipping)=>{
+    return [{name:'TOTAL', value:`$ ${total}`}, 
+            {name:'SHIPING', value:`$ ${cartItems.length>1 ?shipping: '0'}`}, 
+            {name:'VAT(INCLUDED)', value:`$ ${VAT}`}
+        ].map((item, index)=>{
+            return (
+                <article key={index} className="flex-shrink-0 flex items-center">
+                    <p className="text-[15px] mr-auto font-Maronpe-Medium leading-[25px] text-black opacity-50">{item.name}</p>
+                    <p className="text-[18px] text-black font-Manrope-Bold">{item.value}</p>
+                </article>
+            )
+        })
+}
+
 //Below is the cart modal background component
 export default function Modal1(){
     const dispatch = useDispatch()

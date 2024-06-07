@@ -1,4 +1,3 @@
-import { formatFigures } from "../checkout/checkoutExports"
 
 export default function CardNamePrice({data, id}){
     const toCartName = 
@@ -13,7 +12,7 @@ export default function CardNamePrice({data, id}){
 
     let productPrice = 
     <p className=" text-black font-Manrope-Bold text-[18px] leading-normal tracking-[1.29px]">
-        ${formatFigures(data.price)}
+        ${(data.price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' ))}
     </p>
     return( 
 
