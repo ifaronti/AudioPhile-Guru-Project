@@ -1,6 +1,5 @@
-# Frontend Mentor - Audiophile e-commerce website solution
 
-This is a solution to the [Audiophile e-commerce website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/audiophile-ecommerce-website-C8cuSd_wx). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+# Frontend Mentor - Audiophile e-commerce website solution
 
 ## Table of contents
   - [The challenge](#the-challenge)
@@ -41,29 +40,30 @@ This is a huge step for me in programming so I took my time learning the ropes. 
 After my war with the design figma was won, I went down the rabit hole where no rabits can survive:
 
   - I gathered the packages I needed for the backend, innitialized my repo locally, innit my folder and got the start up packages.
-  - I manually entered all the packages I needed in my package.json file with entering their versions as well then hit npm install -S while entering the devdependences as they should be
+
+  - I manually entered all the packages I needed in my package.json file, entering their versions as well then hit npm install -S while entering the devdependences as they should be
 
   - I grabbed my database connect string, determined all the routes needed, created a controller folder and controller files for the routes, created a route folder and route files for the router.
 
-  - I connected to my database hiding my connect string in .env file and adding it to my gitgnore. tested my routes were working and went to work on writing the codes for the controllers.
+  - I connected to my database hiding my connect string in .env file and adding it to my gitignore. tested my routes were working and went to work on writing the codes for the controllers.
   
-  - Then I uploaded the products to database using a Schema but with a condition of {strict:false}; one time operation
+  - Then I uploaded the products to database using a mongoose Schema but with a rule: {strict:false}; one time operation
 
-  - After all my routes were live and my database connection/API routes was tested with postman, I decided the backend needed to be tested with frontend so I ran the API on local server.
+  - After all my routes were live and my database connection/API routes were tested with postman, I decided the backend needed to be tested with frontend so I ran the API on local server.
 
   Frontend:
 
-  - Fronted was same ol for me so after the innitial error of not looking all design images, I went from page to page writing the codes for each page were necessary and importing reusable component for the pages where necessary. I innitially had a global component that transferred data to child components but there were some cases where the child components need to make the API calls themselves to avoid errors in case users refresh pages. Basically, the reason my code base became big was because I factoring in user refreshing pages and everything in redux will be cleared, I thought about using redux-persist but I decided against it so I could practice persisting data with API calls instead.
+  - Fronted was same ol for me so after the innitial error of not looking at all design images, I went from page to page writing the codes for each page where necessary and importing reusable components for the pages where necessary. I innitially had a global component that transferred data to child components but there were some cases where the child components need to make the API calls themselves to avoid errors in case users refresh pages. Basically, the reason my code base became big was because I factored in user refreshing pages and everything in redux will be cleared, I thought about using redux-persist but I decided against it so I could practice persisting data with API calls instead.
 
   - once I designed all the pages and gathered their datas, I moved to write the cart logic, and checkout logic. I'm still trying to switch to mobile first workflow but I'm really used to desktop first. after all logic, I did the mobile layout. 
 
-  - after I finished the frontend, it was time to deploy my server/API to serverless service lambda through claudiajs. I got lazy with claudiaJS and didn't read the doc. This took two days of my time for something as simple as --runtime nodejs20.x and --set-env (my environment variables)... *facepalm* #disappointedInLazySelf. Even the lambda set up to create a user for claudjs to use as access, I didn't want to read the aws instructions, I just wanted the enter two lines of codes and boom(NEVER AGAIN!! WILL I NOT READ DOCS). The set up super easy after I actually read the docs for aws IAM and claudiaJS.
+  - after I finished the frontend, it was time to deploy my server/API to serverless service lambda through claudiajs. I got lazy with claudiaJS and didn't read the doc. This took two days of my time for something as simple as --runtime nodejs20.x and --set-env (my environment variables)... *facepalm* #disappointedInLazySelf. Even the lambda set up to create a user for claudjs to use as access, I didn't want to read the aws instructions, I just wanted to enter two lines of codes and boom(NEVER AGAIN!! WILL I NOT READ DOCS). The set up was super easy after I actually read the docs for aws IAM and claudiaJS.
 
   - Once the laziness cost me 4-5 days of agonizing self kicking, I finally deployed my API to lambda
 
-  - After API deployment, I returned to my frontend code base, changed the axios.method urls to my API endpoints', refactored some of codes, and finished by adding framer-motion scroll effects to my components. 
+  - After API deployment, I returned to my frontend code base, concealed my API URLs changed the axios.method urls to my API endpoints', refactored some of my codes and finished by adding framer-motion scroll effects to some of my components. 
 
-  - Even as I type this, I'm still going to check for how I'm going to better my code base and improve many things.
+  - Even as I type this, I'm still going to check for how I'm going to better my code base and improve anything. Although this is a big  project, I feel like there's a way to avoid each child components making API calls independently. But it is what it is; have to ensure page refresh by user doesn't affect access to data by child components!!!
 
 ### Built with
 - Semantic HTML5 markup
@@ -90,15 +90,12 @@ I learned express.js API deployment to serverless service(lambda), I practiced u
 ### Continued development
 With this project, I have officially welcomed myself to the fullstack community. I will continue practicing fullstack application devs, getting better with aws(there's so much to learn about the service). 
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
-
 ### Useful resources
 
 - [stackoverflow](https://stackoverflow.com) - I always check stackoverflow to see if there are better ways to do whatever I'm doing or for help if I'm stuck. I didn't feel stuck throughout this project though the API deployment was crazy. Also, I was having issues with axios.delete but then I got help from stackoverflow to wrap the request body in an object (axios.delete(url, {data:{...req.body}})) I had it like axios.delete(url, {...req.body})
 
 ## Author
 - Ifarontimi Akeem And All My Names
-- Frontend Mentor - [@ifaronti](https://www.frontendmentor.io/profile/ifaronti)
 
 ## Acknowledgments
 Thanks to Frontend Mentor, freeCodeCamp and John Smilga. A special thanks especially to John Smilga for his tutorial on node/express. That was very comprehensive. I felt confident enough to practice backend coding after watching the two parts of the freeCodeCamp tutor's videos. I added my understanding to it and my confidence level in backend is through the roof thanks to the above mentioned people/entities.
