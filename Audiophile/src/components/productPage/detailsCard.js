@@ -70,24 +70,23 @@ export default function DetailCard({id}){
         await cartId
         await data
         try{
-            if(!cartId){
-                const owner = Math.floor(Math.random()*2000000000)
-                const {data} = await axios.post(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart?createdBy=${owner}`, toCart)
-                localStorage.setItem('cartOwner', owner)
+            if(cartId === '' || cartId==null){
+                const {data} = await axios.post(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart`, toCart)
                 localStorage.setItem('cartId', data.id)
                 dispatch(changeOwner(owner))
                 dispatch(changeCartId(data.id))
             }
-            if(!cartItems.some(item=>item.slug===toCart.slug && cartId)){
-                await axios.put(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart/${cartId}`, toCart)
+            else{
+                if(!cartItems.some(item=>item.slug===toCart.slug && cartId !== '' && cartId !== null)){
+                    await axios.put(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart/${cartId}`, toCart)
+                }
             }
         }
         catch (err){
             
         }
         setIsInCart(true)
-        dispatch(changeInCart(true))
-        // window.location.reload()
+        window.location.reload()
     }
 
     const deleteFromCart = async(toCart)=>{
@@ -96,7 +95,6 @@ export default function DetailCard({id}){
         await toCart
         await axios.delete(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart/${cartId}`, {data:{slug:data.slug}})
         setIsInCart(false)
-        dispatch(changeInCart(false))
         window.location.reload()
     }
 

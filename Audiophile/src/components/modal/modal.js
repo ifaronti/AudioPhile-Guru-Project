@@ -27,7 +27,7 @@ export default function ModalCart(){
         }
         getDataBaseCart()
         // eslint-disable-next-line
-    }, [inCart])
+    }, [])
 
     const newCart = cartData.filter(item=>item.name)
     
