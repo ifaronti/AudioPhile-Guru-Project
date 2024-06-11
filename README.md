@@ -32,7 +32,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [github](https://github.com/ifaronti/AudioPhile-Guru-Project/tree/main)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Netlify](https://ifasaudiophile.netlify.app/)
 
 ## My process
 This is a huge step for me in programming so I took my time learning the ropes. I made an error in the frontend dev by not looking at all the designs in the figma file. I was selecting a page design then flowing with that until I realized how much of the big picture could use reuseable components and so there goes my innitial start up of the project; all trashed(especially the css).
