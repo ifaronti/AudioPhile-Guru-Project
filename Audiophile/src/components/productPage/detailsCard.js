@@ -7,6 +7,8 @@ import { heading } from "./productExports"
 import DetailQuantity from "./detailsQuantity"
 import SeeProduct from "../general-components/productBtn"
 import { motion } from "framer-motion"
+import { changeOwner } from "../features/ownerSlice"
+import { changeCartId } from "../features/cartID"
 
 export default function DetailCard({id}){
     const [quantity, setQuantity] = useState(1)
@@ -68,10 +70,15 @@ export default function DetailCard({id}){
         await cartId
         await data
         try{
-            if(!toCart.name || !cartId){
-                return
+            if(!cartId){
+                const owner = Math.floor(Math.random()*2000000000)
+                const {data} = await axios.post(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart?createdBy=${owner}`, toCart)
+                localStorage.setItem('cartOwner', owner)
+                localStorage.setItem('cartId', data.id)
+                dispatch(changeOwner(owner))
+                dispatch(changeCartId(data.id))
             }
-            if(!cartItems.some(item=>item.slug===toCart.slug)){
+            if(!cartItems.some(item=>item.slug===toCart.slug && cartId)){
                 await axios.put(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart/${cartId}`, toCart)
             }
         }
@@ -80,7 +87,7 @@ export default function DetailCard({id}){
         }
         setIsInCart(true)
         dispatch(changeInCart(true))
-        window.location.reload()
+        // window.location.reload()
     }
 
     const deleteFromCart = async(toCart)=>{
