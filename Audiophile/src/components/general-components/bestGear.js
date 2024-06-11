@@ -12,7 +12,7 @@ export default function BestGear(){
     return (
         <motion.div 
         initial={{ opacity: 0 }}
-        transition={{ duration: 2.5 }}
+        transition={{ duration: 1.8 }}
         whileInView={{ opacity: 1, scale:1 }}
         viewport={{ once: false}}
         >

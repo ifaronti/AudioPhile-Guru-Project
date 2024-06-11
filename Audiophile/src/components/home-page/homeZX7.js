@@ -18,7 +18,7 @@ export default function ZX7(){
     const media = QueryMedia(matchesSM, matchesMD, matchesXL)
 
     const zx7 = 
-        <motion.div initial={{ opacity: 0}} transition={{ duration: 2.5 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
+        <motion.div initial={{ opacity: 0}} transition={{ duration: 1.8 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
             <div className="xl:w-[1110px] h-[320px] rounded-lg relative sm:w-[327px] md:w-[89.713541666667%] xl:min-w-[1110px] md:max-w-[689px]">
                 <img src={`${process.env.PUBLIC_URL}/assets/home/${media}/image-speaker-zx7.jpg`} className="absolute w-[100%] rounded-lg h-[100%]" alt="zx7 speaker" />
                 

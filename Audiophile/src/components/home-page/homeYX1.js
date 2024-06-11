@@ -15,7 +15,7 @@ export default function YX1(){
     const media = QueryMedia(matchesSM, matchesMD, matchesXL)
 
     const yx1 = 
-    <motion.div initial={{ opacity: 0}} transition={{ duration: 2.5 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
+    <motion.div initial={{ opacity: 0}} transition={{ duration: 1.8 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
         <div className="sm:h-[200px] content-center md:h-[320px] relative flex md:flex-row sm:flex-col sm:gap-[24px] item-center md:gap-[11px] xl:gap-[30px] xl:w-[1110px] lg:w-[689px] sm:w-full">
             <img src={`${process.env.PUBLIC_URL}/assets/home/${media}/image-earphones-yx1.jpg`} className="rounded-lg md:w-[339px] xl:w-[540px] md:h-[320px] sm:h-[200px] sm:w-[327px]" alt="YX1 EARPHONES" />
                 <article className="rounded-lg relative gap-[32px] p-0 bg-[#f1f1f1] flex-shrink-0 xl:w-[540px] md:w-[339px] flex flex-col sm:h-[200px] sm:w-[327px] md:h-[320px]">

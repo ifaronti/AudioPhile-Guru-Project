@@ -36,7 +36,7 @@ export default function Category({category, id}){
 
     const pageOrder = toRender.map((product, index) =>{
         return(
-            <motion.div initial={{ opacity: 0}} key={index+1} transition={{ duration: 2.5 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
+            <motion.div initial={{ opacity: 0}} key={index+1} transition={{ duration: 1.8 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
                 <div className={`xl:h-[560px] ${index%2 !== 0 ? 'xl:flex-row-reverse':'xl:flex-row'} md:h-[671px] sm:h-[681px] xl:w-[1110px] sm:w-full mx-auto sm:gap-[32px] items-center md:gap-[52px] xl:gap-[125px] relative flex sm:flex-col`}>
                     {productImg(product.slug, media)}
                     <ProductCard

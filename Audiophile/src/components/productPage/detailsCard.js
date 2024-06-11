@@ -7,6 +7,8 @@ import { heading } from "./productExports"
 import DetailQuantity from "./detailsQuantity"
 import SeeProduct from "../general-components/productBtn"
 import { motion } from "framer-motion"
+import { changeCartId } from "../features/cartID"
+import { changeOwner } from "../features/ownerSlice"
 
 export default function DetailCard({id}){
     const [quantity, setQuantity] = useState(1)
@@ -15,6 +17,7 @@ export default function DetailCard({id}){
     const [isInCart, setIsInCart] = useState(false)
     const cartId = useSelector(state =>state.cartId.value) || localStorage.getItem('cartId')
     const data = useSelector(state=>state.data.value)
+    const cartOwner = useSelector(state=> state.owner.value) || localStorage.getItem('cartOwner')
     const dispatch = useDispatch()
 
     useEffect(()=>{
@@ -68,11 +71,20 @@ export default function DetailCard({id}){
         await cartId
         await data
         try{
-            if(!toCart.name || !cartId){
-                return
+            if(!cartId || !cartOwner){
+                const owner = Math.floor(Math.random()*2000000000)
+                const {data} = await axios.post(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart?createdBy=${owner}`, toCart)
+                localStorage.setItem('cartOwner', owner)
+                localStorage.setItem('cartId', data.id)
+                dispatch(changeOwner(owner))
+                dispatch(changeCartId(data.id))
+                dispatch(changeInCart(true))
+
             }
-            if(!cartItems.some(item=>item.slug===toCart.slug)){
-                await axios.put(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart/${cartId}`, toCart)
+            else{
+                if(!cartItems.some(item=>item.slug===toCart.slug)){
+                    await axios.put(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart/${cartId}`, toCart)
+                }
             }
         }
         catch (err){
@@ -94,7 +106,7 @@ export default function DetailCard({id}){
     }
 
     return(
-        <motion.div initial={{ opacity: 0}} transition={{ duration: 2.5 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
+        <motion.div initial={{ opacity: 0}} transition={{ duration: 1.8 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
             <section className=" sm:w-[327px] md:w-[339.5px] xl:w-[445.5px]">
                 {data.new && heading}
                 <CardNamePrice data={data} id={id}/>

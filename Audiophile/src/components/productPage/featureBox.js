@@ -28,7 +28,7 @@ const theBox =
         </article>
 
     return(
-        <motion.div initial={{ opacity: 0}} transition={{ duration: 2.5 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
+        <motion.div initial={{ opacity: 0}} transition={{ duration: 1.8 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
             <section className="xl:w-[1110px] sm:w-[327px] md:w-full sm:gap-[88px] md:gap-[120px] flex sm:flex-col xl:flex-row xl:gap-[125px] mx-auto">
                 {featuresText}
                 {theBox}

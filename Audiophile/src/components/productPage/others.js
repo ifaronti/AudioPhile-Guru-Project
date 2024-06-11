@@ -88,7 +88,7 @@ export default function MayLike({data}){
         </section>
 
     return(
-        <motion.div initial={{ opacity: 0, scale:0.9999999}} transition={{ duration: 2.5 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
+        <motion.div initial={{ opacity: 0, scale:0.9999999}} transition={{ duration: 1.8 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
             {youMay}
             {mayCard}
         </motion.div>
