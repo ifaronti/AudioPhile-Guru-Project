@@ -3,6 +3,7 @@ import CartItems from "./cartItems";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import {loadBase} from '../features/databaseCart'
+import inCart from "../features/inCart";
 
 
 
@@ -27,7 +28,7 @@ export default function ModalCart(){
         }
         getDataBaseCart()
         // eslint-disable-next-line
-    }, [])
+    }, [inCart])
 
     const newCart = cartData.filter(item=>item.name)
     

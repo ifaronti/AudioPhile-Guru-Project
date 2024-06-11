@@ -7,8 +7,6 @@ import { heading } from "./productExports"
 import DetailQuantity from "./detailsQuantity"
 import SeeProduct from "../general-components/productBtn"
 import { motion } from "framer-motion"
-import { changeOwner } from "../features/ownerSlice"
-import { changeCartId } from "../features/cartID"
 
 export default function DetailCard({id}){
     const [quantity, setQuantity] = useState(1)
@@ -26,7 +24,7 @@ export default function DetailCard({id}){
                 setCartItems(data?.items.filter(items=>items.name))
             }
             catch (err){
-               
+    
             }
         }
         setQuantity(1)
@@ -70,22 +68,18 @@ export default function DetailCard({id}){
         await cartId
         await data
         try{
-            if(cartId === '' || cartId==null){
-                const {data} = await axios.post(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart`, toCart)
-                localStorage.setItem('cartId', data.id)
-                dispatch(changeOwner(owner))
-                dispatch(changeCartId(data.id))
+            if(!toCart.name || !cartId){
+                return
             }
-            else{
-                if(!cartItems.some(item=>item.slug===toCart.slug && cartId !== '' && cartId !== null)){
-                    await axios.put(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart/${cartId}`, toCart)
-                }
+            if(!cartItems.some(item=>item.slug===toCart.slug)){
+                await axios.put(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart/${cartId}`, toCart)
             }
         }
         catch (err){
-            
+         
         }
         setIsInCart(true)
+        dispatch(changeInCart(true))
         window.location.reload()
     }
 
@@ -95,6 +89,7 @@ export default function DetailCard({id}){
         await toCart
         await axios.delete(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart/${cartId}`, {data:{slug:data.slug}})
         setIsInCart(false)
+        dispatch(changeInCart(false))
         window.location.reload()
     }
 
