@@ -16,7 +16,7 @@ export default function HomePage(){
         const firstLoad = async()=>{
             try{
                 if(localStorage.getItem('cartOwner')){
-                   console.log('user has a cart in the database')
+                   return
                 }
                 const owner = Math.floor(Math.random()*2000000000)
                 const {data} = await axios.post(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart?createdBy=${owner}`)
