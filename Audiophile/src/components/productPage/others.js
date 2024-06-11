@@ -62,7 +62,7 @@ export default function MayLike({data}){
                 }
             }
             catch (err){
-                console.warn(err)
+                
             }
         }
         getProduct()

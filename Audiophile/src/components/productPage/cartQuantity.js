@@ -22,7 +22,7 @@ export default function CartQuantity({item}){
                 await axios.patch(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart/${cartId}`, {name:item.name, quantity:quantity})
             }
             catch(err){
-                console.log(err)
+              
             }
     }
 

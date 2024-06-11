@@ -22,7 +22,7 @@ export default function ModalCart(){
             }
 
             catch(err){
-                console.log(err)
+                
             }
         }
         getDataBaseCart()

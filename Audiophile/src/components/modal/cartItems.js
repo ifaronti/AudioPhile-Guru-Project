@@ -43,7 +43,7 @@ export default function CartItems({data}){
                     <button disabled={cartItems.length <1 ? true: false} onClick={deleteCart} className="f font-Maronpe-Medium opacity-50 text-[15px] hover:opacity-100 hover:text-[#D87D4A] leading-[25px] text-black">Remove all</button>
                 </header>
                 <Items data={data}/>
-                <div className="flex-shrink-0 relative w-[313px] sm:pl-[1.3rem] md:pl-[unset] mx-auto">
+                <div className="flex-shrink-0 relative w-[313px] sm:pl-[1.3rem] sm:pr-[1.3rem] md:pr-[unset] md:pl-[unset] mx-auto">
                     <B4Tax/>
                     <button disabled={cartItems.length<1 ? true:false} onClick={theDispatcher} className="bg-[#d87d4a] disabled:bg-[#fbaf85] mx-auto relative sm:w-[271px] md:w-[313px] h-[48px] hover:bg-[#FBAF85] mb-[32px] text-white font-Manrope-Bold tracking-[1px] text-[13px]">CHECKOUT</button>
                 </div>

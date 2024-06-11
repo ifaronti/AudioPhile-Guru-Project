@@ -26,7 +26,7 @@ export default function HomePage(){
                 dispatch(changeCartId(data.id))
             }
             catch (err){
-                console.log(err)
+               
             }
         }
         firstLoad()

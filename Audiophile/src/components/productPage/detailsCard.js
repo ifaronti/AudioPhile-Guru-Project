@@ -24,7 +24,7 @@ export default function DetailCard({id}){
                 setCartItems(data?.items.filter(items=>items.name))
             }
             catch (err){
-                console.log(err)
+               
             }
         }
         setQuantity(1)
@@ -76,7 +76,7 @@ export default function DetailCard({id}){
             }
         }
         catch (err){
-            console.log(err.response)
+            
         }
         setIsInCart(true)
         dispatch(changeInCart(true))

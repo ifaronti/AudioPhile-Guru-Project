@@ -25,7 +25,7 @@ export default function Summary(){
         }
 
         catch (err){
-            console.log(err)
+         
         }
         localStorage.clear()
     }
