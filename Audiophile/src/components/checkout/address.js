@@ -8,6 +8,7 @@ export default function Address(){
     const [error, setError] = useState({address:false, zip:false, city:false, country:false})
     const [shipTo, setShipTo] = useState({address:'', zipcode:'', city:'', country:''})
 
+    // checks if entries are valid before setting shipTo values
     function handleChange(e){
         const {name, value} = e.target
         if(!e.target.validity.valid){
@@ -28,18 +29,21 @@ export default function Address(){
         }
     }
 
+    //ensures all entries are not empty or null before updatin shipping redux state
     const checkAddress = ()=>{
         if(shipTo.address && shipTo.zipcode && shipTo.city && shipTo.country){
             dispatch(changeShipping(shipTo))
         }
     }
 
+    //updates redux state once entries are valid
     useEffect(()=>{
         // eslint-disable-next-line
         checkAddress()
         // eslint-disable-next-line
     },[shipTo])
 
+    //once input is out of focus, it double checks it's valid and sets error accordingly
     function handleOnBlur(e){
         const {name} = e.target
         if(e.target.validity.valid){
@@ -52,6 +56,7 @@ export default function Address(){
         }
     }
     
+    //inputs for address, country, city and zipcode
     const address = 
         <div className="md:w-[634px] mx-auto sm:w-[280px] ">
             <p className="text-[13px] mb-[16px] font-Manrope-Bold text-[#d87d4a]">SHIPPING INFO</p>

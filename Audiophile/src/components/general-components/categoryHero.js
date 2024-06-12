@@ -1,4 +1,5 @@
 
+//This is the hero section of each category page
 export default function CatHero({headerText}){
     const hero = 
         <header className="w-full md:h-[336px] sm:h-[192px] abso sm:px-[40px] xl:px-[unset] bg-black ">

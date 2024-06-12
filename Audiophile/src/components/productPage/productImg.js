@@ -4,11 +4,15 @@ import { motion } from "framer-motion";
 
 export default function ProductImages({data}){
 
+//uses material UI's useMediaQuery to match current screen size
 const matchesSM = useMediaQuery('(max-width:700px)')
 const matchesMD = useMediaQuery('(max-width:1149px)')
 const matchesXL = useMediaQuery('(min-width:1150px)')
 
+//uses the imported function QueryMedia to determine if current screen match is mobilr, desktop or tablet
 const media = QueryMedia(matchesSM, matchesMD, matchesXL)
+
+//container for current products detailed images
 const productPics = 
         <motion.div initial={{ opacity: 0}} transition={{ duration: 2.5 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
             <section className="mx-auto flex xl:w-[1110px] md:w-full sm:flex-col md:flex-row sm:gap-[20px] md:gap-[18px] xl:gap-[30px]">

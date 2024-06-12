@@ -1,6 +1,7 @@
 import { sectionItems } from "./homeExports";
 import { motion } from "framer-motion";
 
+//section of homePage which is also used on all pages except checkout
 export default function HomeSection2(){
 
     const container1 = sectionItems('headphones')

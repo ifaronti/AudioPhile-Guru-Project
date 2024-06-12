@@ -6,9 +6,12 @@ export default function CartQuantity({item}){
     const [quantity, setQuantity] = useState(item.quantity)
     const cartId = useSelector(state=>state.cartId.value) || localStorage.getItem('cartId')
 
+    //using item as props which is any item in cart, this adds 1 to its value when clicked
     function addQuant(){
        setQuantity(prev => prev+1)
     }
+
+    //using item as props which is any item in cart, this decuts 1 from value when clicked excepts it's 1
     function redQuant(){
         if(item.quantity === 1){
             return setQuantity(1)
@@ -16,6 +19,7 @@ export default function CartQuantity({item}){
         setQuantity(prev=>prev-1)
     }
 
+    //calls my API and updates the quantity of respective item using patch method
     const serveQuantity = async()=>{
             await item
             try{
@@ -26,11 +30,13 @@ export default function CartQuantity({item}){
             }
     }
 
+    //Calls the servQuantity function whenever quantity changes so updates are live
     useEffect(()=>{
         serveQuantity()
         // eslint-disable-next-line
     }, [quantity])
 
+    //displays the quantity of item in carts which buttons to add or reduce each item.
     const quantitySwitcher = 
             <div className="b-[#979797] w-[96px] flex bg-[#f1f1f1] items-center content-center gap-[12px] h-[32px]">
 

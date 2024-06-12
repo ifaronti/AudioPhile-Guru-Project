@@ -1,4 +1,5 @@
 
+//this button appears on multiple pages except checkout with different text and function
 export default function SeeProduct({text, event}){
     return  <button 
                 onClick={event}

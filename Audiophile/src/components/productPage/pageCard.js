@@ -8,12 +8,16 @@ import { motion } from "framer-motion";
 export default function ProductPageCard(){
     const data = useSelector(state=>state.data.value)
 
+     //matches screenSize using the material UI's useMediaQuery 
     const matchesSM = useMediaQuery('(max-width:700px)')
     const matchesMD = useMediaQuery('(max-width:1149px)')
     const matchesXL = useMediaQuery('(min-width:1150px)')
 
+     //uses the imported function QueryMedia to determine if matched screensize is desktop, mobile or tablet
+    //which changes path of images to be displayed for the suggestion section.
     const media = QueryMedia(matchesSM, matchesMD, matchesXL)
 
+    //aggregate of detailsCard.js  plus the category image of product for product pages
     const product =
         <div className="relative">  
             <Link to={`/${data.category}`}>

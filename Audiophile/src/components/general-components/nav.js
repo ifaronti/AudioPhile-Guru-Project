@@ -5,9 +5,11 @@ import { modal2 } from "../checkout/checkoutExports";
 import HomeSection2 from "../home-page/section2";
 import { useState } from "react";
 
+//Site's navbar
 export default function NavBar(){
     const [toggle, setToggle] = useState(false)
 
+    //toggle bars for mobile menu
     const toggleBars =
             <button onClick={()=>setToggle(!toggle)} className="flex group mr-[49px] xl:hidden flex-col gap-[4px]">
                 <div className={`w-[16px] h-[3px] transition duration-150 ease-out ${toggle ? "rotate-45 translate-y-[-1px]": ''} bg-white`}></div>
@@ -22,7 +24,6 @@ export default function NavBar(){
             {modal2}
         </div>
     
-
     const navLinks = 
         <div className="xl:inline-flex sm:hidden justify-center w-[429px] mx-auto sm:flex-col items-center pr-0 xl:flex-row gap-[34px]">
             <Link to='/'><ul className="list-none"><li className="hover:text-[#D87D4A]  font-Manrope-Bold cursor-pointer text-[13px] tracking-[2px] text-[#ffffff]">HOME</li></ul></Link>

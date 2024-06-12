@@ -2,7 +2,9 @@ import { useMediaQuery } from "@mui/material";
 import { QueryMedia } from "../general-components/mediaQuery";
 import { motion } from "framer-motion";
 
+//This component is used in all pages except checkout
 export default function BestGear(){
+    //used material UI's useMediaQuery to display different images according to screensize
     const matchesSM = useMediaQuery('(max-width:700px)')
     const matchesMD = useMediaQuery('(max-width:1149px)')
     const matchesXL = useMediaQuery('(min-width:1150px)')

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 const arrow = <img className="relative top-[-2px]" src={`${process.env.PUBLIC_URL}/assets/shared/desktop/icon-arrow-right.svg`} alt="arrow foward" />
 
+//for homeSection2 
 export const sectionItems = (category)=>{
     return  <div className="xl:w-[350px] cursor-pointer md:w-[223px] items-center content-center sm:w-[327px] xl:h-[284px] flex flex-col  relative sm:h-[217px]">
                 <img src={`${process.env.PUBLIC_URL}/assets/shared/desktop/image-category-thumbnail-${category}.png`} className="z-10 md:scale-[1.1] lg:scale-[1.315] h-[160px] absolute sm:top-[-9px] md:top-[-40px] xl:top-[28px]" alt="headphone" />

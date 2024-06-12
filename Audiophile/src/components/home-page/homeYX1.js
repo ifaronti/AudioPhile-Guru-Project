@@ -5,6 +5,7 @@ import { useMediaQuery } from "@mui/material";
 import {QueryMedia} from '../general-components/mediaQuery'
 import { motion } from "framer-motion";
 
+//section3's earphone YX1 using material UI's useMediaQuery to determine image path
 export default function YX1(){
     const dispatch = useDispatch()
 

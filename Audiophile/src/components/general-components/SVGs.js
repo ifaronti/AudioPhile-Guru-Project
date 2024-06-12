@@ -1,5 +1,5 @@
 
-
+//The belows are exported as socialMedia logos on the footer section!!
 export const facebook = 
         <svg
             width="24" 

@@ -5,6 +5,7 @@ import { useMediaQuery } from "@mui/material";
 import { QueryMedia } from "../general-components/mediaQuery";
 import { motion } from "framer-motion";
 
+//section3's speaker ZX9 using material UI's useMediaQuery to determine image path
 export default function ZX9(){
     const dispatch = useDispatch()
     const patternImg = <img src={`${process.env.PUBLIC_URL}/assets/home/desktop/pattern-circles.svg`} alt="circles"/>

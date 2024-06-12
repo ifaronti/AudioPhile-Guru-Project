@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux"
 import { changePage } from "../features/pageSlice"
 import { useNavigate } from "react-router-dom"
 
+//the text on category page product displays
 export default function ProductCard({name, category, productId, description, newProduct, id}){
     const heading = <p className="font-Manrope-Regular sm:mb-[24px] text-[#d87d4a] md:mb-[16px] sm:text-center xl:text-left text-[14px] opacity-50 tracking-[10px]">NEW PRODUCT</p>
     const itemName = 

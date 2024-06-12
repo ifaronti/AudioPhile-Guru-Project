@@ -4,6 +4,7 @@ import BestGear from "../general-components/bestGear";
 import Footer from "../general-components/footer";
 import Hero from "./hero";
 
+//all home page sections
 export default function HomePage(){
 
     return(

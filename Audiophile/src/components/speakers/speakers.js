@@ -4,6 +4,7 @@ import HomeSection2 from '../home-page/section2'
 import CatHero from '../general-components/categoryHero'
 import Category from '../general-components/dynamicCat'
 
+//Speakers category page using static reusable components and dynamic <Category/> component
 export default function Speakers(){
 
     return(

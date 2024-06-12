@@ -3,23 +3,19 @@ import CartItems from "./cartItems";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import {loadBase} from '../features/databaseCart'
-import inCart from "../features/inCart";
-
-
 
 export default function ModalCart(){
     const [cartData, setCartData] = useState([])
     const cartId = useSelector(state=>state.cartId.value)|| localStorage.getItem('cartId')
-    const inCart = useSelector(state=>state.inCart.value)
     const dispatch = useDispatch()
   
-
+    //calls my API everytime the cart button is clicked using cartId and sets cartData for display
     useEffect(()=>{
         const getDataBaseCart = async()=>{
             try{
                 const{data} = await axios.get(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart/${cartId}`)
                 setCartData(data?.items)
-                dispatch(loadBase(data?.items.filter(item=>item.name)))
+                dispatch(loadBase(data?.items))
             }
 
             catch(err){
@@ -28,9 +24,7 @@ export default function ModalCart(){
         }
         getDataBaseCart()
         // eslint-disable-next-line
-    }, [inCart])
-
-    const newCart = cartData.filter(item=>item.name)
+    }, [])
     
-    return <CartItems data={newCart}/>
+    return <CartItems data={cartData}/>
 }

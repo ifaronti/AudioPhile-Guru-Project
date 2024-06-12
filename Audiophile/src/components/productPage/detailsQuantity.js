@@ -1,4 +1,5 @@
 
+//using props this specifies the quantity to be added to payload.quantity when item is added to cart
 export default function DetailQuantity({quantity, add, reduce}){
     
 return( 

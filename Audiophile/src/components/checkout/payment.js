@@ -10,6 +10,7 @@ export default function Payment(){
     const [error, setError] = useState({emoney:false, pin:false})
     const dispatch = useDispatch()
 
+    //ensures valid data entry according to method(cash or e-Money)
     function handleChange(e){
         const {name, value, type} = e.target
         if(type==='radio'){
@@ -25,6 +26,7 @@ export default function Payment(){
         console.log(payment)
     }
 
+    //ensures no errors are true and correct info depending on method of payment
     const checkPayment = ()=>{
         if(!payment.method){
             return
@@ -37,11 +39,13 @@ export default function Payment(){
         }
     }
 
+ // uses the checkPayment function to change redux state value of payment
     useEffect(()=>{
         checkPayment()
         // eslint-disable-next-line
     },[payment])
 
+    //ensures validity after input in no longer in focus
     function handleOnBlur(e){
         const {name} = e.target
         return e.target.validity.valid ? 
@@ -51,6 +55,7 @@ export default function Payment(){
         })
     }
 
+    //emoney method input
     const emoneyInputs = 
         <div className="flex md:flex-row sm:flex-col md:gap-[16px] sm:gap-[24px] sm:mb-[32px] md:mb-[24px]">
             <CheckoutInput error={error.emoney} id={'eNumber'} placeholder={'364759034'} type={'text'} label={'e-Money Number'}
@@ -63,6 +68,7 @@ export default function Payment(){
 
         </div>
     
+    //all payment inputs together
     const payments = 
         <div className="md:w-[634px] sm:mb-[32px] sm:mt-[32px] md:mt-[61px] md:mb-[63px] mx-auto sm:w-[280px]">
             <p className="text-[13px] mb-[16px] font-Manrope-Bold text-[#d87d4a]">PAYMENT DETAILS</p>

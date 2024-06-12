@@ -17,6 +17,7 @@ export default function Billing(){
         phone:''
     })
 
+    //ensures billing details are valid befor set the state values
     function handleChange(e){
         const {name, value} = e.target
         if(!e.target.validity.valid){
@@ -43,18 +44,20 @@ export default function Billing(){
         }
     }
 
+    // checks billingData is not empty
     const checkBilling = ()=>{
         if(billingData.name && billingData.email && billingData.phone && !error.name && !error.email && !error.phone){
             dispatch(changeBilling(billingData))
         }
     }
 
+    //if billing data isn't empty, this changes redux state value of Billing
     useEffect(()=>{
-        
         checkBilling()
         // eslint-disable-next-line
     },[billingData, error])
 
+    //sets errors accordingly once input when out of focus
     function handleOnBlur(e){
         const {name} = e.target
         if(e.target.validity.valid){
@@ -67,6 +70,7 @@ export default function Billing(){
         }
     }
     
+    //billinData inputs
     const billing = 
         <div className="md:w-[634px] sm:mb-[32px] md:mb-[53px] mx-auto sm:w-[280px]">
             {header}

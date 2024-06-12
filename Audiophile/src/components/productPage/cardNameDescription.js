@@ -1,5 +1,9 @@
+import { useSelector } from "react-redux"
 
-export default function CardNamePrice({data, id}){
+//This displays the name, price and description of product in product page using redux state data value
+export default function CardNamePrice({id}){
+    const data = useSelector(state=>state.data.value)
+
     const toCartName = 
     <h2 className={`font-Manrope-Bold ${data.category==='speakers' ? 'sm:w-[150px] md:w-[150px]': 'xl:w-[445px] md:w-[339px] sm:w-[300px]'} md:leading-[44px] md:tracking-[1.43px] text-left sm:text-[28px] md:text-[40px] sm:tracking-[1px] sm:leading-normal`} id={id}>
         {data.name}

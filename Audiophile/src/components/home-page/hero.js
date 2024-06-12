@@ -8,17 +8,20 @@ import { QueryMedia } from "../general-components/mediaQuery"
 export default function Hero(){
     const dispatch = useDispatch()
 
+    //
     const matchesSM = useMediaQuery('(max-width:480px)')
     const matchesMD = useMediaQuery('(max-width:1149px)')
     const matchesXL = useMediaQuery('(min-width:1150px)')
     
+    //Uses the QueryMedia function to determine if screensize is desktop, mobile or tablet with above const
     const media = QueryMedia(matchesSM, matchesMD, matchesXL)
 
-   
+   //changes redux state value of current product id to be displayed on product page
     function dispatcher(id){
        return dispatch(changePage(id))
     }
 
+    //Contents on homePages' hero section
     const itemDescribe = 
         <section className="xl:w-[77.0715%] md:mt-[216px] sm:mt-[198px] xl:mt-[225px] md:w-[49.348958333333%] flex flex-col sm:items-center sm:content-center w-[100%] h-[346px] xl:content-start xl:items-start relative">
             <p className="font-Manrope-Regular text-center xl:text-left text-[14px] opacity-50 h-[19px] tracking-[10px] text-white ">NEW PRODUCT</p>

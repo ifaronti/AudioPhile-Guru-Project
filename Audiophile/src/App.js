@@ -14,19 +14,22 @@ import Modal1 from "./components/checkout/checkoutExports";
 import NavBar from "./components/general-components/nav";
 import axios from "axios";
 import { modal2 } from "./components/checkout/checkoutExports";
+import { loadBase } from "./components/features/databaseCart";
 
 export default function App() {
   const modal = useSelector(state => state.showModal.value)
   const searchParam = useSelector(state=>state.page.value) || localStorage.getItem('current')
   const confirmModal = useSelector(state=>state.checkoutModal.value)
+  const cartId = useSelector(state=>state.cartId.value) || localStorage.getItem('cartId')
+  const inCart = useSelector(state=>state.inCart.value)
 
   const dispatch = useDispatch()
 
   useEffect(()=>{
     const getProduct = async()=>{
         try{
-            const theData = await axios.get(`${process.env.REACT_APP_AUDIOSHOPAPI}/products/${searchParam}`)
-            dispatch(changeData(theData?.data))
+            const {data} = await axios.get(`${process.env.REACT_APP_AUDIOSHOPAPI}/products/${searchParam}`)
+            dispatch(changeData(data))
         }
         catch (err){
 
@@ -36,6 +39,21 @@ export default function App() {
       getProduct()
 
   },[searchParam, dispatch])
+
+
+  useEffect(()=>{
+    const getCart = async()=>{
+        try{
+            const {data} = await axios.get(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart/${cartId}`)
+            dispatch(loadBase(data.items))
+        }
+        catch (err){
+
+        }
+    }
+    getCart()
+    // eslint-disable-next-line
+},[inCart])
 
   return (
     <main className="2xl:w-[1440px] relative sm:w-full mb-[4px] bg-[#fafafa] my-0 mx-auto">

@@ -2,7 +2,7 @@ import {facebook, twitter, instagram} from './SVGs'
 import Logo from "./logo";
 import { Link } from 'react-router-dom';
 
-
+//The footer of all pages
 export default function Footer(){
     const navLinks = 
         <div className="inline-flex justify-center w-[429px] md:flex-row mx-auto sm:gap-[16px] sm:flex-col items-center pr-0 xl:flex-row md:gap-[34px]">

@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux"
 import {showModal} from '../features/modalSlice'
 
+//This is the cart in nav and it shows the cart modal and cart contents when clicked
 export default function Cart(){
     const dispatch = useDispatch()
 

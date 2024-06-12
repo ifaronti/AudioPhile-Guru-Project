@@ -5,6 +5,7 @@ import { useMediaQuery } from "@mui/material";
 import {QueryMedia} from '../general-components/mediaQuery'
 import { motion } from "framer-motion";
 
+//section3's speaker ZX7 using material UI's useMediaQuery to determine image path
 export default function ZX7(){
     const dispatch = useDispatch()
     function dispatcher(id){

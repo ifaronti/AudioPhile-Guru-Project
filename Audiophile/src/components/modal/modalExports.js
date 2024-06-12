@@ -1,8 +1,8 @@
 import CartQuantity from '../productPage/cartQuantity'
 
+//Using data props which is the cartData in modal.js this displays the cart Items shortening the name
 export default function Items({data}){
-
-    const items =  data.map((item, index) =>{
+    const items =  data?.map((item, index) =>{
         return  <div key={index+1} className="flex z-50 w-[313px] sm:px-[1.2rem] md:px-[unset] mx-auto flex-shrink-0 items-center content-between">
                 <div className="flex items-center mr-auto gap-[16px]">
                     <img 
