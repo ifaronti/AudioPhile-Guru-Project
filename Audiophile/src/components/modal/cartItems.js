@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { changeInCart } from '../features/inCart'
 
-export default function CartItems({data}){ 
+export default function CartItems(){ 
     const dispatch = useDispatch()
     const goTo = useNavigate()
     const cartId = useSelector(state=>state.cartId.value) || localStorage.getItem('cartId')
@@ -35,6 +35,8 @@ export default function CartItems({data}){
         localStorage.removeItem('current')
         dispatch(showModal(false))
         dispatch(changeInCart(false))
+        goTo('/')
+        window.location.reload()
     }
 
     const cart =  
@@ -43,9 +45,9 @@ export default function CartItems({data}){
                     <h1 className="font-Manrope-Bold mr-auto text-[18px] tracking-[1.29px]">CART ({cartItems?.length})</h1>
                     <button disabled={cartItems?.length <1 ? true: false} onClick={deleteCart} className="f font-Maronpe-Medium opacity-50 text-[15px] hover:opacity-100 hover:text-[#D87D4A] leading-[25px] text-black">Remove all</button>
                 </header>
-                <Items data={cartItems}/>
+                <Items />
                 <div className="flex-shrink-0 relative w-[313px] sm:pl-[1.3rem] sm:pr-[1.3rem] md:pr-[unset] md:pl-[unset] mx-auto">
-                    <B4Tax data={cartItems}/>
+                    <B4Tax />
                     <button disabled={cartItems?.length<1 ? true:false} onClick={theDispatcher} className="bg-[#d87d4a] disabled:bg-[#fbaf85] mx-auto relative sm:w-[271px] md:w-[313px] h-[48px] hover:bg-[#FBAF85] mb-[32px] text-white font-Manrope-Bold tracking-[1px] text-[13px]">CHECKOUT</button>
                 </div>
             </div>

@@ -11,7 +11,7 @@ export default function ProductPageCartBtns(){
     const [quantity, setQuantity] = useState(1)
     const [toCart, setTocart] = useState({name:'', price:'', quantity:quantity, id:'', slug:''})
     const [isInCart, setIsInCart] = useState(false)
-    const cartId = useSelector(state=>state.cartId.value)
+    const cartId = useSelector(state=>state.cartId.value) || localStorage.getItem('cartId')
     const data = useSelector(state=>state.data.value)
     const cartOwner = useSelector(state=> state.owner.value) || localStorage.getItem('cartOwner')
     const baseCart = useSelector(state => state.baseCart.value)

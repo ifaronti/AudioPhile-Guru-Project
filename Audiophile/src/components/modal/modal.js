@@ -1,11 +1,10 @@
 import {useSelector, useDispatch} from "react-redux";
 import CartItems from "./cartItems";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import {loadBase} from '../features/databaseCart'
 
 export default function ModalCart(){
-    const [cartData, setCartData] = useState([])
     const cartId = useSelector(state=>state.cartId.value)|| localStorage.getItem('cartId')
     const dispatch = useDispatch()
   
@@ -14,7 +13,7 @@ export default function ModalCart(){
         const getDataBaseCart = async()=>{
             try{
                 const{data} = await axios.get(`${process.env.REACT_APP_AUDIOSHOPAPI}/cart/${cartId}`)
-                setCartData(data?.items)
+           
                 dispatch(loadBase(data?.items))
             }
 
@@ -26,5 +25,5 @@ export default function ModalCart(){
         // eslint-disable-next-line
     }, [])
     
-    return <CartItems data={cartData}/>
+    return <CartItems/>
 }

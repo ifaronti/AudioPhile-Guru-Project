@@ -1,5 +1,5 @@
 import SeeProduct from "../general-components/productBtn"
-import { useDispatch} from "react-redux"
+import { useDispatch, useSelector} from "react-redux"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { changePage } from "../features/pageSlice"
@@ -9,12 +9,12 @@ import {QueryMedia} from '../general-components/mediaQuery'
 import { motion } from "framer-motion"
 
 //the section which suggests products on the site the user may like
-export default function MayLike({data}){
+export default function MayLike(){
     const [id, setId] = useState('')
     const [category, setCategory] = useState('')
     const [slug, setSlug] = useState('')
 
-    // const zothers = useSelector(state=>state.data.value)
+    const data = useSelector(state=>state.data.value).others
 
     //matches screenSize using the material UI's useMediaQuery 
     const matchesSM = useMediaQuery('(max-width:700px)')
@@ -93,7 +93,7 @@ export default function MayLike({data}){
            
         </article>
     })
-
+   
     const mayCard = 
         <section className="flex xl:gap-[30px] xl:w-[1110px] md:w-[89.713466%] sm:w-[327px] mx-auto sm:flex-col md:flex-row md:gap-[30px] sm:gap-[56px]">
             {content}

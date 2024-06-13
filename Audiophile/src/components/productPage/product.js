@@ -14,10 +14,10 @@ export default function ProductPage(){
     return(
         <main className='sm:w-full mx-auto xl:w-[1440px] content-center items-center flex flex-col xl:gap-[160px] md:gap-[120px] sm:gap-[88px]'>
             <div className="w-full sm:h-[90px] xl:h-[97px] bg-black"></div>
-            <div className="w-fit mx-auto"><ProductPageCard id={data.category==='speakers'? 'ch5': ''}/></div>
+            <div className="w-fit mx-auto"><ProductPageCard/></div>
             <div className="w-fit mx-auto"><FeaturesInBox/></div>
             <div className="mx-auto"><ProductImages data={data}/></div>
-            <div className="w-fit mx-auto "><MayLike data={data.others}/></div>
+            <div className="w-fit mx-auto "><MayLike/></div>
             <div className="mx-auto w-fit"><HomeSection2/></div>
             <BestGear/>
             <Footer/>

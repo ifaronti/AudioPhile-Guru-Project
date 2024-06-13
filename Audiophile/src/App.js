@@ -57,7 +57,7 @@ export default function App() {
 
   return (
     <main className="2xl:w-[1440px] relative sm:w-full mb-[4px] bg-[#fafafa] my-0 mx-auto">
-      <div className="2xl:w-[1440px] w-full absolute top-0 z-[200]"><NavBar/></div>
+      <div className="2xl:w-[1440px] w-full fixed bg-[#000] sm:pb-8 md:pb-[unset] top-0 z-[200]"><NavBar/></div>
       <div className="w-[full] flex absolute h-full">
         {modal && <div className="z-[250]"><Modal1/></div>}
       </div>

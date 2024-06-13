@@ -7,5 +7,5 @@ export const productImg = (product, media)=>{
     />
 }
 
-//this displays 'NEW PRODUCT' text on current product if data.new is true.
+//this displays 'NEW PRODUCT' text on current product if productData.new is true.
 export const heading = <p className="font-Manrope-Regular sm:mb-[24px] text-[#d87d4a] md:mb-[17px] text-left text-[14px] opacity-50 tracking-[10px]">NEW PRODUCT</p>
