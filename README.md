@@ -74,7 +74,6 @@ After my war with the design figma was won, I went down the rabit hole where no 
 - Semantic HTML5 markup
 - [Tailwind CSS](https://tailwindcss.com/)
 - Flexbox
-- CSS Grid
 - [Express.js](expressjs.com)
 - [Node.js](https://nodejs.org)
 - [React-Router](https://reactrouter.com)
