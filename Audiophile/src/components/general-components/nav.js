@@ -5,6 +5,7 @@ import { modal2 } from "../checkout/checkoutExports";
 import HomeSection2 from "../home-page/section2";
 import { useState } from "react";
 
+
 //Site's navbar
 export default function NavBar(){
     const [toggle, setToggle] = useState(false)
@@ -19,10 +20,10 @@ export default function NavBar(){
 
     const mobMen = <HomeSection2/>
 
-        toggle && <div className="xl:hidden">
-            {mobMen}
-            {modal2}
-        </div>
+        // toggle && <div className="xl:hidden">
+        //     {mobMen}
+        //     {modal2}
+        // </div>
     
     const navLinks = 
         <div className="xl:inline-flex sm:hidden justify-center w-[429px] mx-auto sm:flex-col items-center pr-0 xl:flex-row gap-[34px]">
@@ -47,7 +48,7 @@ export default function NavBar(){
                 toggle && 
                 <div className="xl:hidden z-[3000] sm:top-24 md:top-40 w-full fixed">
                     <div className="block relative bg-white sm:py-[35px] xl:max-w-[689px] sm:w-full sm:h-[730px] mx-auto md:h-[340px] rounded-lg md:py-[70px]">
-                        <div className="w-fit mx-auto">{mobMen}</div>
+                        <section onClick={()=>setToggle(false)} className="w-fit mx-auto">{mobMen}</section>
                     </div>
                     {modal2}
                 </div>
