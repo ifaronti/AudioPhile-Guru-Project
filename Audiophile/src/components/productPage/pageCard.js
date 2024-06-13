@@ -4,25 +4,9 @@ import { useSelector } from "react-redux";
 import { QueryMedia } from "../general-components/mediaQuery";
 import { useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
-import { ThreeDots } from "react-loader-spinner";
-import { useEffect, useState } from "react";
 
 export default function ProductPageCard(){
-    const [loading, setLoading] = useState(true)
     const data = useSelector(state=>state.data.value)
-
-    const loadingEffect = 
-            <div className="w-fit mx-auto">
-                <ThreeDots visible={true} height="80" width="80" color="#d87d4a" />
-            </div>
-    
-    //sets loading false everytime component reRenders. This way, the loading effects displays until
-    //the data is ready
-    useEffect(()=>{
-        setTimeout(()=>{
-            setLoading(false)
-        },1000)
-    },[])
 
      //matches screenSize using the material UI's useMediaQuery 
     const matchesSM = useMediaQuery('(max-width:700px)')
@@ -53,5 +37,5 @@ export default function ProductPageCard(){
             </motion.div>
         </div>
 
-    return loading? loadingEffect: product
+    return product
 }
