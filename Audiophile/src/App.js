@@ -40,7 +40,6 @@ export default function App() {
 
   },[searchParam, dispatch])
 
-
   useEffect(()=>{
     const getCart = async()=>{
         try{

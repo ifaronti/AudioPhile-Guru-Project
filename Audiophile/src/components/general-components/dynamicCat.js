@@ -33,7 +33,7 @@ export default function Category({category, id}){
                 const theCat = await axios.get(`${process.env.REACT_APP_AUDIOSHOPAPI}/products?category=${category}`)
                 setTimeout(()=>{
                     setPageData(theCat.data.products)
-                },2000)
+                },1000)
             }
             catch (err){
         

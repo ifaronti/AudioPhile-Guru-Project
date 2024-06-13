@@ -58,6 +58,7 @@ export default function Summary(){
         }
         dispatch(checkModal(true))
         deleteCart()
+        window.location.reload()
     }
 
     //the below 4 consts calculates all payments and adds them all to the grandTotal 
