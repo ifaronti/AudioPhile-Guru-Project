@@ -17,6 +17,7 @@ export default function ProductCard({name, category, productId, description, new
     function dispatcher(id){
         dispatch(changePage(id))
         gotTo(`/${category}/product/${id}`)
+        window.scrollTo(0, 0,{  behavior: 'smooth' })
     }
 
     const itemDescription = 

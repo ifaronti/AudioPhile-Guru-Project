@@ -42,6 +42,8 @@ export default function MayLike(){
     }
 
     //calls the above function whenever the id or category changes from the suggestions sections
+    //and also routes user to the corresponding current page
+
     useEffect(()=>{
         dispatch(changePage(id))
         theGo(category, id)
@@ -52,6 +54,7 @@ export default function MayLike(){
     //selected product
     function dispatcher(slug){
         setSlug(slug)
+        window.scrollTo(0, 0,{  behavior: 'smooth' })
     }
 
     //Calls my API everytime slug changes so my API can deliver appropriate data.
@@ -80,7 +83,7 @@ export default function MayLike(){
         // eslint-disable-next-line
     }, [slug])
 
-    //displays the  suggestion section whenever global product data changes using the data props
+    //displays the suggestion section whenever global product data changes using the data props
     const content = data?.map((item, index) =>{
        return <article key={index+1} className="flex flex-col items-center">
             <img 

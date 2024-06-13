@@ -5,6 +5,7 @@ import CatHero from '../general-components/categoryHero'
 import Category from '../general-components/dynamicCat'
 
 export default function Earphones(){
+    
 //This is the category page for earphones
     return(
         <main className='relative w-full'>

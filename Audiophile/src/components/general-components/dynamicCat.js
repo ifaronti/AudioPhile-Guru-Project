@@ -5,15 +5,21 @@ import { useEffect, useState } from "react";
 import { useMediaQuery } from "@mui/material";
 import { QueryMedia } from "./mediaQuery";
 import { motion } from "framer-motion";
+import { ThreeDots } from "react-loader-spinner";
 
 //This component is used to populate the category page
 export default function Category({category, id}){
-    const [pageData, setPageData] = useState([])
+    const [pageData, setPageData] = useState(false)
     
     //The below uses material UI's media query to display different images on different screen size
     const matchesSM = useMediaQuery('(max-width:700px)')
     const matchesMD = useMediaQuery('(max-width:1119px)')
     const matchesXL = useMediaQuery('(min-width:1120px)')
+
+    const loadingEffect = <div className="w-fit mx-auto">
+        <ThreeDots visible={true} height="80" width="80" color="#d87d4a" />
+    </div>
+
     
     //QueryMedia import from mediaQuery.js as a function to select desktop, table or mobile which changes
     //the url of image to be displayed according to screen size
@@ -25,7 +31,9 @@ export default function Category({category, id}){
             try{
                 
                 const theCat = await axios.get(`${process.env.REACT_APP_AUDIOSHOPAPI}/products?category=${category}`)
-                setPageData(theCat.data.products)
+                setTimeout(()=>{
+                    setPageData(theCat.data.products)
+                },2000)
             }
             catch (err){
         
@@ -33,11 +41,12 @@ export default function Category({category, id}){
     
         }
         getCat()
+        window.scrollTo(0, 0,{  behavior: 'smooth' })
     },[category])
  
     //the below 3 consts rearranges the item to be displayed so new item is displayed first on category page
-    const shiftedData = pageData.filter(item=>item.new === true)
-    const newData = pageData.filter(item=> item.new===false)
+    const shiftedData = !pageData? '': pageData.filter(item=>item.new === true)
+    const newData = !pageData? '': pageData.filter(item=> item.new===false)
     const toRender = [...shiftedData, ...newData]
 
     //maps the toRender for display and determines the position of images according to product's index
@@ -60,5 +69,5 @@ export default function Category({category, id}){
             )
            
     })
-    return pageOrder
+    return !pageData? loadingEffect : pageOrder
 }

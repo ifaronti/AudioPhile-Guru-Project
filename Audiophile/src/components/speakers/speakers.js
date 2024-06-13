@@ -6,7 +6,7 @@ import Category from '../general-components/dynamicCat'
 
 //Speakers category page using static reusable components and dynamic <Category/> component
 export default function Speakers(){
-
+    
     return(
         <main className='relative w-full'>
             <CatHero headerText={'SPEAKERS'}/>
