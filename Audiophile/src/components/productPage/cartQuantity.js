@@ -38,7 +38,7 @@ export default function CartQuantity({item}){
 
     //displays the quantity of item in carts which buttons to add or reduce each item.
     const quantitySwitcher = 
-            <div className="b-[#979797] w-[96px] flex bg-[#f1f1f1] items-center content-center gap-[12px] h-[32px]">
+            <div role='presentation' className="b-[#979797] w-[96px] flex bg-[#f1f1f1] items-center content-center gap-[12px] h-[32px]">
 
                 <button onClick={()=> redQuant()} className="font-Manrope-Bold ml-auto text-[13px] opacity-50 hover:text-[#D87D4A] hover:opacity-100 tracking-[1px] text-black">-</button>
 

@@ -9,7 +9,7 @@ export default function B4Tax(){
 
     return (
         <article className="w-[313px] flex-shrink-0 mx-auto flex mb-[24px] md:pr-[unset] sm:pr-[2.56rem] items-center">
-            <p className="text-[15px] mr-auto font-Maronpe-Medium leading-[25px] text-black opacity-50">Total</p>
+            <h2 className="text-[15px] mr-auto font-Maronpe-Medium leading-[25px] text-black opacity-50">Total</h2>
             <p className="text-[18px] text-black font-Manrope-Bold">${total? formatFigures(total): 0}</p>
         </article>
     )

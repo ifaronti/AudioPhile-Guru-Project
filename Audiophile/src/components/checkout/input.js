@@ -23,7 +23,7 @@ export default function CheckoutInput({error,onBlur, pattern, value, id, label, 
 
     return (
         //this uses flex column reverse css so the labels can be styled according to respective input
-        <div className="relative h-[81px] flex flex-col-reverse">
+        <div role='presentation' className="relative h-[81px] flex flex-col-reverse">
             {input}
             {inLabel}
         </div>

@@ -56,11 +56,11 @@ export default function App() {
 
   return (
     <main className="2xl:w-[1440px] relative sm:w-full mb-[4px] bg-[#fafafa] my-0 mx-auto">
-      <div className="2xl:w-[1440px] w-full fixed bg-[#000] sm:pb-8 md:pb-[unset] top-0 z-[200]"><NavBar/></div>
-      <div className="w-[full] flex absolute h-full">
-        {modal && <div className="z-[250]"><Modal1/></div>}
+      <div role='presentation' className="2xl:w-[1440px] w-full fixed bg-[#000] sm:pb-8 xl:pb-[unset] top-0 z-[200]"><NavBar/></div>
+      <div role='presentation' className="w-[full] flex absolute h-full">
+        {modal && <div role='presentation' className="z-[250]"><Modal1/></div>}
       </div>
-      {confirmModal && <div className="2xl:w-[1440px] sm:w-full absolute z-[300] h-full">
+      {confirmModal && <div role='presentation' className="2xl:w-[1440px] sm:w-full absolute z-[300] h-full">
         {modal2}
       </div>}
       {modal && <ModalCart/>}

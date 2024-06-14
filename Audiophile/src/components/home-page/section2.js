@@ -11,7 +11,7 @@ export default function HomeSection2(){
     const container3 =  sectionItems('earphones')
 
     return (
-        <motion.div initial={{ opacity: 0}} transition={{ duration: 1.8 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
+        <motion.div role='presentation' initial={{ opacity: 0}} transition={{ duration: 1.8 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
             <section className="xl:w-[1110px] relative mx-auto sm:flex-col md:w-full sm:w-[327px] md:gap-[10px] xl:gap-[30px] sm:gap-[16px] xl:h-[284px] md:h-[217px] items-center content-center sm:h-[683px] flex md:flex-row p-0">
                 {container1}
                 {container2}

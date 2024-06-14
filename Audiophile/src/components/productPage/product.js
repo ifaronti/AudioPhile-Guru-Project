@@ -13,7 +13,7 @@ export default function ProductPage(){
     const [loading, setLoading] = useState(true)
 
     const loadingEffect = 
-            <div className="w-fit mx-auto">
+            <div role='presentation' className="w-fit mx-auto">
                 <ThreeDots visible={true} height="80" width="80" color="#d87d4a" />
             </div>
     
@@ -27,12 +27,12 @@ export default function ProductPage(){
 
     return(
         <main className='sm:w-full mx-auto xl:w-[1440px] content-center items-center flex flex-col xl:gap-[160px] md:gap-[120px] sm:gap-[88px]'>
-            <div className="w-full sm:h-[90px] xl:h-[97px] bg-black"></div>
-            <div className="w-fit mx-auto">{loading? loadingEffect : <ProductPageCard/>}</div>
-            <div className="w-fit mx-auto">{loading? 'Please Wait...' : <FeaturesInBox/>}</div>
-            <div className="mx-auto">{loading? 'Please Wait...': <ProductImages/>}</div>
-            <div className="w-fit mx-auto ">{loading? 'Please Wait...': <MayLike/>}</div>
-            <div className="mx-auto w-fit"><HomeSection2/></div>
+            <div role='presentation' className="w-full sm:h-[90px] xl:h-[97px] bg-black"></div>
+            <section className="w-fit mx-auto">{loading? loadingEffect : <ProductPageCard/>}</section>
+            <section className="w-fit mx-auto">{loading? 'Please Wait...' : <FeaturesInBox/>}</section>
+            <section className="mx-auto">{loading? 'Please Wait...': <ProductImages/>}</section>
+            <section className="w-fit mx-auto ">{loading? 'Please Wait...': <MayLike/>}</section>
+            <section className="mx-auto w-fit"><HomeSection2/></section>
             <BestGear/>
             <Footer/>
         </main>

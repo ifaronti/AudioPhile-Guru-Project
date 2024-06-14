@@ -81,7 +81,7 @@ export default function ProductPageCartBtns(){
     }
 
     return  ( 
-        <div className="flex gap-[16px]">
+        <div role='presentation' className="flex gap-[16px]">
             <DetailQuantity
                 quantity={quantity}
                 add={()=>setQuantity(prev=>prev+1)}

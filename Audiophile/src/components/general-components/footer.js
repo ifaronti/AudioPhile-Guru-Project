@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 //The footer of all pages
 export default function Footer(){
     const navLinks = 
-        <div className="inline-flex justify-center w-[429px] md:flex-row mx-auto sm:gap-[16px] sm:flex-col items-center pr-0 xl:flex-row md:gap-[34px]">
+        <div role='presentation' className="inline-flex justify-center w-[429px] md:flex-row mx-auto sm:gap-[16px] sm:flex-col items-center pr-0 xl:flex-row md:gap-[34px]">
             <Link to='/'><ul className="list-none"><li className="hover:text-[#D87D4A]  font-Manrope-Bold cursor-pointer text-[13px] tracking-[2px] text-[#ffffff]">HOME</li></ul></Link>
             <Link to='/headphones'><ul className="list-none"><li className="hover:text-[#D87D4A]  font-Manrope-Bold cursor-pointer text-[13px] tracking-[2px] text-[#ffffff]">HEADPHONES</li></ul></Link>
             <Link to='/speakers'><ul className="list-none"><li className="hover:text-[#D87D4A]  font-Manrope-Bold cursor-pointer text-[13px] tracking-[2px] text-[#ffffff]">SPEAKERS</li></ul></Link>
@@ -27,15 +27,15 @@ export default function Footer(){
 
     return(
         <footer className="bg-[#101010] relative p-0 w-full sm:h-[654px] md:h-[400px] xl:h-[365px]">
-            <div className="xl:w-[1110px] md:mt-[56px] xl:min-w-[1110px] sm:mt-[48px] sm:w-[327px] md:min-w-[89.71354666%] md:max-w-[689px] xl:mt-[75px] xl:mb-[46px] mx-auto">
+            <div role='presentation' className="xl:w-[1110px] md:mt-[56px] xl:min-w-[1110px] sm:mt-[48px] sm:w-[327px] md:min-w-[89.71354666%] md:max-w-[689px] xl:mt-[75px] xl:mb-[46px] mx-auto">
                 <nav className="xl:w-[1110px] sm:gap-[48px] md:gap-[32px] xl:gap-[unset] sm:w-[327px] sm:mt-[52px] md:mt-[56px] md:items-start sm:items-center xl:flex-row flex sm:flex-col xl:content-between">
                     <Logo/>
                     <nav className="xl:ml-auto sm:ml-0">{navLinks}</nav>
                 </nav>
                 {footerNote}
                 {footerRight}
-                <div className='flex relative sm:mx-auto sm:w-fit md:w-full md:mx-0'>
-                    <div className='flex gap-[16px] md:mt-[-4.5%] xl:mt-[-10%] w-[104px] md:-mx-0 md:ml-auto'>
+                <div role='presentation' className='flex relative sm:mx-auto sm:w-fit md:w-full md:mx-0'>
+                    <div role='presentation' className='flex gap-[16px] md:mt-[-4.5%] xl:mt-[-10%] w-[104px] md:-mx-0 md:ml-auto'>
                         {facebook}
                         {twitter}
                         {instagram}

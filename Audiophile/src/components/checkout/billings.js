@@ -72,10 +72,10 @@ export default function Billing(){
     
     //billinData inputs
     const billing = 
-        <div className="md:w-[634px] sm:mb-[32px] md:mb-[53px] mx-auto sm:w-[280px]">
+        <section className="md:w-[634px] sm:mb-[32px] md:mb-[53px] mx-auto sm:w-[280px]">
             {header}
             {headLabel}
-            <div className="md:flex-row mb-[24px] flex sm:flex-col md:gap-[16px] sm:gap-[24px]">
+            <div role='presentation' className="md:flex-row mb-[24px] flex sm:flex-col md:gap-[16px] sm:gap-[24px]">
                 <CheckoutInput error={error.name} id={'name'} pattern="[^0-9]*$" placeholder={'e.g Bonta Cuntas'} type={'text'}
                     label={'Name'} onchange={handleChange} value={billingData.name} onBlur={handleOnBlur}
                 />
@@ -88,7 +88,7 @@ export default function Billing(){
             <CheckoutInput error={error.phone} id={'phone'} placeholder={'+1(204) 555-0136'} type={'text'} label={'Phone Number'}
                 onchange={handleChange} value={billingData.phone} onBlur={handleOnBlur} pattern="(^[+]{1})?[0-9]{10,}"
             />
-        </div>
+        </section>
 
     return billing
 }

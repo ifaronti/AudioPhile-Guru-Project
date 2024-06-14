@@ -10,12 +10,12 @@ export default function Earphones(){
     return(
         <main className='relative w-full'>
             <CatHero headerText={'EARPHONES'}/>
-            <div className='sm:mt-[64px] md:mt-[120px] xl:mt-[160px] flex flex-col xl:gap-[160px] sm:gap-[120px]'>
+            <section className='sm:mt-[64px] md:mt-[120px] xl:mt-[160px] flex flex-col xl:gap-[160px] sm:gap-[120px]'>
                 <Category category={'earphones'} id={'ch12'}/>
-                <div className='w-fit md:mt-16 xl:mt-[unset] mx-auto'> <HomeSection2/></div>
+                <section className='w-fit md:mt-16 xl:mt-[unset] mx-auto'> <HomeSection2/></section>
                 <BestGear/>
                 <Footer/>
-            </div>
+            </section>
         </main>
     )
 }

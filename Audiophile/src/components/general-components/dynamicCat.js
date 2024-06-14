@@ -12,7 +12,7 @@ export default function Category({category, id}){
     const [pageData, setPageData] = useState(false)
     
     //The below uses material UI's media query to display different images on different screen size
-    const matchesSM = useMediaQuery('(max-width:700px)')
+    const matchesSM = useMediaQuery('(max-width:699px)')
     const matchesMD = useMediaQuery('(max-width:1119px)')
     const matchesXL = useMediaQuery('(min-width:1120px)')
 
@@ -20,7 +20,6 @@ export default function Category({category, id}){
         <ThreeDots visible={true} height="80" width="80" color="#d87d4a" />
     </div>
 
-    
     //QueryMedia import from mediaQuery.js as a function to select desktop, table or mobile which changes
     //the url of image to be displayed according to screen size
     const media = QueryMedia(matchesSM, matchesMD, matchesXL)
@@ -53,8 +52,8 @@ export default function Category({category, id}){
     //productImg function was imported from headphonesImg
     const pageOrder = toRender.map((product, index) =>{
         return(
-            <motion.div initial={{ opacity: 0}} key={index+1} transition={{ duration: 1.8 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
-                <div className={`xl:h-[560px] ${index%2 !== 0 ? 'xl:flex-row-reverse':'xl:flex-row'} md:h-[671px] sm:h-[681px] xl:w-[1110px] sm:w-full mx-auto sm:gap-[32px] items-center md:gap-[52px] xl:gap-[125px] relative flex sm:flex-col`}>
+            <motion.div role='presentation' initial={{ opacity: 0}} key={index+1} transition={{ duration: 1.8 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
+                <section  className={`xl:h-[560px] ${index%2 !== 0 ? 'xl:flex-row-reverse':'xl:flex-row'} md:h-[671px] sm:h-[681px] xl:w-[1110px] sm:w-full mx-auto sm:gap-[32px] items-center md:gap-[52px] xl:gap-[125px] relative flex sm:flex-col`}>
                     {productImg(product.slug, media)}
                     <ProductCard
                         name={product.name}
@@ -62,12 +61,12 @@ export default function Category({category, id}){
                         newProduct={product.new}
                         id={id}
                         category={product.category}
-                        productId={product?._id}
+                        slug={product.slug}
                     />
-                </div>
+                </section>
             </motion.div>
             )
-           
-    })
+        })
+
     return !pageData? loadingEffect : pageOrder
 }

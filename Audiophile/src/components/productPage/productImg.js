@@ -17,9 +17,9 @@ const data = useSelector(state=>state.data.value)
 
 //container for current products detailed images
 const productPics = 
-        <motion.div initial={{ opacity: 0}} transition={{ duration: 1.8 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
+        <motion.div role='presentation' initial={{ opacity: 0}} transition={{ duration: 1.8 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
             <section className="mx-auto flex xl:w-[1110px] md:w-full sm:flex-col md:flex-row sm:gap-[20px] md:gap-[18px] xl:gap-[30px]">
-                <div className="flex-col flex md:gap-[18px] sm:gap-[20px] xl:gap-[32px]">
+                <div role='presentation' className="flex-col flex md:gap-[18px] sm:gap-[20px] xl:gap-[32px]">
                     <img 
                         src={`${process.env.PUBLIC_URL}/assets/product-${data.slug}/${media}/image-gallery-1.jpg`}
                         alt={data.name}

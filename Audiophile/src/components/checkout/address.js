@@ -58,16 +58,16 @@ export default function Address(){
     
     //inputs for address, country, city and zipcode
     const address = 
-        <div className="md:w-[634px] mx-auto sm:w-[280px] ">
+        <section className="md:w-[634px] mx-auto sm:w-[280px] ">
             <p className="text-[13px] mb-[16px] font-Manrope-Bold text-[#d87d4a]">SHIPPING INFO</p>
-            <div className="mb-[24px] mx-auto">
+            <div role='presentation' className="mb-[24px] mx-auto">
                 <CheckoutInput error={error.address} id={'address'} label={'Address'} type={'text'} placeholder={'117 Mapleridge Ave'}
                     labelId={'addressLabel'} pattern={"^[\\d+]{1,}\\s+[a-zA-Z\\s+]{1,}"} name='address' onchange={handleChange}
                     onBlur={handleOnBlur}
                 />
             </div>
 
-            <div className="md:flex-row mb-[24px] flex sm:flex-col md:gap-[16px] sm:gap-[24px]">
+            <div role='presentation' className="md:flex-row mb-[24px] flex sm:flex-col md:gap-[16px] sm:gap-[24px]">
                 <CheckoutInput error={error.zip} id={'zipcode'} label={'ZIP Code'} type={'text'} placeholder={'99999'}
                     pattern={"[0-9]{5}"} name='zipcode' onchange={handleChange} onBlur={handleOnBlur}
                 />
@@ -81,7 +81,7 @@ export default function Address(){
                 pattern={"[a-zA-Z]{3,}"} name='country' onchange={handleChange} onBlur={handleOnBlur}
             />
             
-        </div>
+        </section>
         
     return address
 }

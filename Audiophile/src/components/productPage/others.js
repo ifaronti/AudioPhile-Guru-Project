@@ -1,7 +1,5 @@
 import SeeProduct from "../general-components/productBtn"
 import { useDispatch, useSelector} from "react-redux"
-import axios from "axios"
-import { useEffect, useState } from "react"
 import { changePage } from "../features/pageSlice"
 import { useNavigate } from "react-router-dom"
 import { useMediaQuery } from "@mui/material";
@@ -10,14 +8,11 @@ import { motion } from "framer-motion"
 
 //the section which suggests products on the site the user may like
 export default function MayLike(){
-    const [id, setId] = useState('')
-    const [category, setCategory] = useState('')
-    const [slug, setSlug] = useState('')
 
-    const data = useSelector(state=>state.data.value).others
+    const data = useSelector(state=>state.data.value)
 
     //matches screenSize using the material UI's useMediaQuery 
-    const matchesSM = useMediaQuery('(max-width:700px)')
+    const matchesSM = useMediaQuery('(max-width:699px)')
     const matchesMD = useMediaQuery('(max-width:1149px)')
     const matchesXL = useMediaQuery('(min-width:1150px)')
 
@@ -31,60 +26,20 @@ export default function MayLike(){
     const goTo = useNavigate()
 
     //async function to set current product Id and routes users accordignly 
-    const theGo = async(category, id)=>{
-        if(category==='' || id === ''){
-            return
-        }
-        await category
-        await id
-        localStorage.setItem('current', id)
-        goTo(`/${category}/${id}`)
-    }
-
-    //calls the above function whenever the id or category changes from the suggestions sections
-    //and also routes user to the corresponding current page
-
-    useEffect(()=>{
-        dispatch(changePage(id))
-        theGo(category, id)
-        // eslint-disable-next-line
-    }, [id, category, dispatch])
 
     //changes state slug value so the call to my API sends data of product that matches the slug of 
     //selected product
-    function dispatcher(slug){
-        setSlug(slug)
+    async function dispatcher(slug){
+        await data
+        // localStorage.setItem('current', data?.slug)
+        await slug
+        dispatch(changePage(slug))
+        goTo(`/${data?.category}/${slug}`)
         window.scrollTo(0, 0,{  behavior: 'smooth' })
     }
 
-    //Calls my API everytime slug changes so my API can deliver appropriate data.
-    useEffect(()=>{
-        const getProduct = async()=>{
-            try{
-                if(slug===''){
-                    return
-                }
-                else{
-                    const theProduct = await axios.get(`${process.env.REACT_APP_AUDIOSHOPAPI}/products?slug=${slug}`)
-                    let theObj
-                    theProduct.data.products.map(item=> {
-                      return theObj = {id:item._id, category:item.category, name:item.name}
-                        
-                    })
-                   setId(theObj.id)
-                   setCategory(theObj.category)
-                }
-            }
-            catch (err){
-                
-            }
-        }
-        getProduct()
-        // eslint-disable-next-line
-    }, [slug])
-
     //displays the suggestion section whenever global product data changes using the data props
-    const content = data?.map((item, index) =>{
+    const content = data.others?.map((item, index) =>{
        return <article key={index+1} className="flex flex-col items-center">
             <img 
                 src={`${process.env.PUBLIC_URL}/assets/shared/${media}/image-${item.slug}.jpg`} 
@@ -103,7 +58,7 @@ export default function MayLike(){
         </section>
 
     return(
-        <motion.div initial={{ opacity: 0, scale:0.9999999}} transition={{ duration: 1.8 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
+        <motion.div role='presentation' initial={{ opacity: 0, scale:0.9999999}} transition={{ duration: 1.8 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
             {youMay}
             {mayCard}
         </motion.div>

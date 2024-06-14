@@ -13,7 +13,7 @@ export default function Summary(){
     const dispatch = useDispatch()
 
     const loadingEffects = 
-    <RotatingLines visible={true} height="40" width="40" color="#d87d4a" strokeWidth="2" animationDuration="0.75"/>
+            <RotatingLines visible={true} height="40" width="40" color="#d87d4a" strokeWidth="2" animationDuration="0.75"/>
 
     useEffect(()=>{
         setTimeout(()=>{
@@ -75,18 +75,18 @@ export default function Summary(){
 
     //This is the aggregate display container for the result of all of the above
     const conatiner = 
-        <div className="xl:w-[350px] rounded-lg h-fit relative flex-grow-0 md:px-[33px] py-[32px] sm:px-[24px] sm:w-[327px] bg-white md:w-[689px] flex flex-col gap-[32px]">
+        <section className="xl:w-[350px] rounded-lg h-fit relative flex-grow-0 md:px-[33px] py-[32px] sm:px-[24px] sm:w-[327px] bg-white md:w-[689px] flex flex-col gap-[32px]">
             <h2 className="text-left text-[18px] font-Manrope-Bold tracking-[1.29px]">SUMMARY</h2>
             {loading? loadingEffects:items}
-            {loading? 'Please Wait...':<div>
+            {loading? 'Please Wait...':<div role='presentation'>
                 {cost}
                 <article className="flex-shrink-0 flex mt-[16px] items-center">
-                    <p className="text-[15px] mr-auto font-Maronpe-Medium leading-[25px] text-black opacity-50">GRAND TOTAL</p>
+                    <h3 className="text-[15px] mr-auto font-Maronpe-Medium leading-[25px] text-black opacity-50">GRAND TOTAL</h3>
                     <p className="text-[18px] text-[#D87D4A] font-Manrope-Bold">$ {baseCart?.length>0?grandTotal:'0'}</p>
                 </article>
             </div>}
             <button disabled={!payment.method || !billing.name?  true:false} onClick={confirmValues} className="bg-[#d87d4a] disabled:bg-[#fbaf85] text-white font-Manrope-Bold tracking-[1px] text-[13px] xl:w-[284px] hover:bg-[#fbaf85] md:w-[623px] sm:w-[279px] h-[48px]">CONTINUE & PAY</button>
-        </div>
+        </section>
 
     return conatiner
 }

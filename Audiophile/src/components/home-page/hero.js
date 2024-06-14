@@ -32,8 +32,8 @@ export default function Hero(){
                     made for the passionate music enthusiast.
                 </p>
             </article>
-            <Link to='/headphones/product/6657a6d93cb648a4f9194f35'>
-                <SeeProduct text={'SEE PRODUCT'} event={()=>dispatcher('6657a6d93cb648a4f9194f35')}/>
+            <Link to='/headphones/xx99-mark-two-headphones'>
+                <SeeProduct text={'SEE PRODUCT'} event={()=>dispatcher('xx99-mark-two-headphones')}/>
             </Link>
 
         </section>

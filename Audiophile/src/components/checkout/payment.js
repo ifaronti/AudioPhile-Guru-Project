@@ -57,7 +57,7 @@ export default function Payment(){
 
     //emoney method input
     const emoneyInputs = 
-        <div className="flex md:flex-row sm:flex-col md:gap-[16px] sm:gap-[24px] sm:mb-[32px] md:mb-[24px]">
+        <div role='presentation' className="flex md:flex-row sm:flex-col md:gap-[16px] sm:gap-[24px] sm:mb-[32px] md:mb-[24px]">
             <CheckoutInput error={error.emoney} id={'eNumber'} placeholder={'364759034'} type={'text'} label={'e-Money Number'}
                 pattern={"[0-9]{9}"} onBlur={handleOnBlur} onchange={handleChange} name='emoney'
             />
@@ -65,16 +65,15 @@ export default function Payment(){
             <CheckoutInput error={error.pin} id={'ePin'} placeholder={'3646'} type={'text'} label={'e-Money PIN'}
                 pattern={"[0-9]{4}"} onBlur={handleOnBlur} onchange={handleChange} name='pin'
             />
-
         </div>
     
     //all payment inputs together
     const payments = 
-        <div className="md:w-[634px] sm:mb-[32px] sm:mt-[32px] md:mt-[61px] md:mb-[63px] mx-auto sm:w-[280px]">
+        <section className="md:w-[634px] sm:mb-[32px] sm:mt-[32px] md:mt-[61px] md:mb-[63px] mx-auto sm:w-[280px]">
             <p className="text-[13px] mb-[16px] font-Manrope-Bold text-[#d87d4a]">PAYMENT DETAILS</p>
-            <div className="flex md:flex-row sm:flex-col">
+            <div role='presentation' className="flex md:flex-row sm:flex-col">
                 <p className="text-[12px] mr-auto font-Manrope-Bold sm:mb-[17px] md:mb-0 text-black tracking-[-0.21px]">Payment Method</p>
-                <div>
+                <div role='presentation'>
                     {radioPayments('e-Money', 'eMoney', 'e-money', handleChange)}
                     {radioPayments('cash', 'cash', 'cash', handleChange)}
                 </div>
@@ -82,7 +81,7 @@ export default function Payment(){
             </div>
             {payment.method === 'e-Money' && emoneyInputs}
             {payment.method === 'cash' && cashNote}
-        </div>
+        </section>
 
     return payments
 }

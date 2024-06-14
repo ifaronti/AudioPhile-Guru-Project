@@ -10,7 +10,7 @@ import { showModal } from "../features/modalSlice"
 */
 export const radioPayments = (value, id, method, onchange) =>{
     return (
-        <div htmlFor={id} className="md:w-[309px] relative mb-[16px] flex gap-[16px] items-center outline-none rounded-lg font-Manrope-Bold text-[16px] tracking-[-0.21px] text-black xl:w-[309px] sm:w-[280px] h-[56px] border-[solid]">
+        <div role='presentation' htmlFor={id} className="md:w-[309px] relative mb-[16px] flex gap-[16px] items-center outline-none rounded-lg font-Manrope-Bold text-[16px] tracking-[-0.21px] text-black xl:w-[309px] sm:w-[280px] h-[56px] border-[solid]">
             <input 
                 type='radio'
                 id= {id}
@@ -43,20 +43,20 @@ export const headLabel = <p className="text-[13px] sm:pr-[48px] md:pr-[0] mb-[16
 //The summary items gets displayed each with the function below
 export const summaryItems = (name, price, quantity, slug, key)=>{
     return(   
-        <div key={key} className="flex items-center mr-auto gap-[16px] w-full">
+        <section key={key} className="flex items-center mr-auto gap-[16px] w-full">
             <img 
                 src={`${process.env.PUBLIC_URL}/assets/cart/image-${slug}.jpg`} 
                 alt="product"
                 className="w-[64px] h-[64px] rounded-lg"
             />
             <article className="flex w-full">
-                <div className="mr-auto">
+                <div role='presentation' className="mr-auto">
                     <h2 className="font-Manrope-Bold leading-[25px] text-[15px] text-[black]">{name.replace(/Headphones|Wireless|Speakers|Earphones|/g, '').replace(/Mark/g, 'MK')}</h2>
                     <p className="font-Manrope-Bold text-[14px] leading-[25px] text-black">${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',' )}</p>
                 </div>
                 <p className="opacity-50 font-Manrope-Bold leading-[25px] text-[15px]">x{quantity}</p>
             </article>
-        </div>
+        </section>
     )
 }
 
@@ -73,8 +73,8 @@ export const formatFigures = (figure)=>{
 
 //confirmation modal background
 export const modal2 = 
-        <div className="2xl:w-[1440px] flex-shrink-0 z-50 fixed h-full sm:w-full">
-            <div className="bg-black absolute w-full h-full opacity-40">
+        <div role='presentation' className="2xl:w-[1440px] flex-shrink-0 z-50 fixed h-full sm:w-full">
+            <div role='presentation' className="bg-black absolute w-full h-full opacity-40">
                 <button className='w-full h-full'></button>
             </div>
         </div>
@@ -89,20 +89,20 @@ export const icon = <svg width="64" height="64" xmlns="http://www.w3.org/2000/sv
 */
 export const checkOutModalItems = (name, price, quantity, slug, key)=>{
     return ( 
-        <div key={key} className="flex mb-[12px] my-[24px] relative mx-auto items-center gap-[16px] sm:w-[215px] md:w-[198px]">
+        <section key={key} className="flex mb-[12px] my-[24px] relative mx-auto items-center gap-[16px] sm:w-[215px] md:w-[198px]">
             <img 
                 src={`${process.env.PUBLIC_URL}/assets/cart/image-${slug}.jpg`} 
                 alt="product"
                 className="w-[50px] h-[50px] rounded-lg"
             />
             <article className="flex w-full ">
-                <div className="mr-auto">
+                <section className="mr-auto">
                     <h2 className="font-Manrope-Bold leading-[25px] text-[15px] text-[black]">{formatName(name)}</h2>
                     <p className="font-Manrope-Bold text-[14px] leading-[25px] text-black">$ {formatFigures(price)}</p>
-                </div>
+                </section>
                 <p className="opacity-50 font-Manrope-Bold leading-[25px] text-[15px]">x{quantity}</p>
             </article>
-        </div>
+        </section>
     )
 }
 
@@ -117,16 +117,16 @@ export const confirmationNotes =
 //below is checkout modal grand total section
 export const theGrand = (total)=>{
     return(  
-        <div className="relative md:rounded-bl-none sm:rounded-bl-lg sm:rounded-br-lg md:rounded-br-lg md:rounded-tr-lg flex flex-col content-center gap-[8px] bg-[black] md:w-[198px] sm:w-[263px]">
-            <p className="leading-[25px] self-baseline sm:ml-[24px] sm:mt-4 md:mt-auto md:ml-[32px] text-[white] font-Maronpe-Medium opacity-75 text-[15px]">GRAND TOTAL</p>
+        <article className="relative md:rounded-bl-none sm:rounded-bl-lg sm:rounded-br-lg md:rounded-br-lg md:rounded-tr-lg flex flex-col content-center gap-[8px] bg-[black] md:w-[198px] sm:w-[263px]">
+            <h3 className="leading-[25px] self-baseline sm:ml-[24px] sm:mt-4 md:mt-auto md:ml-[32px] text-[white] font-Maronpe-Medium opacity-75 text-[15px]">GRAND TOTAL</h3>
             <p className="text-[white] sm:ml-[24px] md:ml-[32px] sm:mb-[19px] md:mb-[35px] font-Manrope-Bold text-[18px]">${total}</p>
-        </div>
+        </article>
     )
 }
 
 //cashNote is displayed when the cash option is selected as payment
 export const cashNote = 
-        <div className="w-fit mt-[24px] items-center mx-auto flex relative sm:flex-col md:flex-row sm:gap-[24px] md:gap-[32px]">
+        <div role='presentation' className="w-fit mt-[24px] items-center mx-auto flex relative sm:flex-col md:flex-row sm:gap-[24px] md:gap-[32px]">
             <img className="w-[48px] h-[48px]" src={`${process.env.PUBLIC_URL}/assets/checkout/icon-cash-on-delivery.svg`} alt="cash"/>
             <p className="text-[15px] text-black opacity-50 leading-[25px] font-Maronpe-Medium md:w-[554px] sm:w-[285px]">
                 The 'Cash on Delivery' option enables you to pay in cash when our delivery 
@@ -142,7 +142,7 @@ export const costs = (total, cartItems, VAT, shipping)=>{
         ].map((item, index)=>{
             return (
                 <article key={index} className="flex-shrink-0 flex items-center">
-                    <p className="text-[15px] mr-auto font-Maronpe-Medium leading-[25px] text-black opacity-50">{item.name}</p>
+                    <h4 className="text-[15px] mr-auto font-Maronpe-Medium leading-[25px] text-black opacity-50">{item.name}</h4>
                     <p className="text-[18px] text-black font-Manrope-Bold">{item.value}</p>
                 </article>
             )
@@ -153,8 +153,8 @@ export const costs = (total, cartItems, VAT, shipping)=>{
 export default function Modal1(){
     const dispatch = useDispatch()
     const modal =
-        <div className="xl:w-[1440px] flex-shrink-0 z-50 fixed h-full w-full">
-            <div className="bg-black absolute w-full h-full opacity-40">
+        <div role='presentation' className="xl:w-[1440px] flex-shrink-0 z-50 fixed h-full w-full">
+            <div role='presentation' className="bg-black absolute w-full h-full opacity-40">
                 <button onClick={()=> dispatch(showModal(false))} className='w-full h-full'></button>
             </div>
         </div>
