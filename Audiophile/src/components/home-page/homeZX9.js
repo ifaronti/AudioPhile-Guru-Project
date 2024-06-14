@@ -10,15 +10,17 @@ export default function ZX9(){
     const dispatch = useDispatch()
     const patternImg = <img src={`${process.env.PUBLIC_URL}/assets/home/desktop/pattern-circles.svg`} alt="circles"/>
 
-    function dispatcher(id){
-       return dispatch(changePage(id))
-    }
-
     const matchesSM = useMediaQuery('(max-width:700px)')
     const matchesMD = useMediaQuery('(max-width:1149px)')
     const matchesXL = useMediaQuery('(min-width:1150px)')
     
     const media = QueryMedia(matchesSM, matchesMD, matchesXL)
+
+    const dispatcher = ()=>{
+        dispatch(changePage('zx9-speaker'))
+        window.scrollTo(0, 0,{  behavior: 'smooth' })
+        return
+    }
 
     const zx9Speaker = 
     <motion.div role='presentation' initial={{ opacity: 0}} transition={{ duration: 1.8 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
@@ -33,7 +35,7 @@ export default function ZX9(){
                         built to deliver truly remarkable sound.
                     </p>
                     <div role='presentation' className="sm:mx-auto w-fit xl:mx-[unset]">
-                        <Link to={'/speakers/zx9-speaker'} onClick={()=>dispatcher('zx9-speaker')} >
+                        <Link to={'/speakers/zx9-speaker'} onClick={dispatcher} >
                             <button className="w-40 z-[200] font-Manrope-Bold leading-normal hover:bg-[#4c4c4c] tracking-[1px] text-white text-[13px] h-12 bg-black">SEE PRODUCT</button>
                         </Link>
                     </div>

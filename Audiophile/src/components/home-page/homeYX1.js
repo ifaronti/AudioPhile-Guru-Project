@@ -15,6 +15,12 @@ export default function YX1(){
     
     const media = QueryMedia(matchesSM, matchesMD, matchesXL)
 
+    const dispatcher = ()=>{
+        dispatch(changePage('yx1-earphones'))
+        window.scrollTo(0, 0,{  behavior: 'smooth' })
+        return
+    }
+
     const yx1 = 
     <motion.div role='presentation' initial={{ opacity: 0}} transition={{ duration: 1.8 }} whileInView={{ opacity: 1, scale:1 }} viewport={{ once: false}}>
         <section className="sm:h-[200px] content-center md:h-[320px] relative flex md:flex-row sm:flex-col sm:gap-[24px] item-center md:gap-[11px] xl:gap-[30px] xl:w-[1110px] lg:w-[689px] sm:w-full">
@@ -23,7 +29,7 @@ export default function YX1(){
                     <section className="flex w-fit h-fit sm:mx-auto my-auto xl:mx-[95px] flex-col gap-[32px]">
                         <h5 className="relative font-Manrope-Bold md:mx-auto tracking-[2px] leading-normal text-black text-[28px]">YX1 EARPHONES</h5>
                         
-                        <Link to={'/earphones/yx1-earphones'} onClick={()=>dispatch(changePage('yx1-earphones'))}>
+                        <Link to={'/earphones/yx1-earphones'} onClick={dispatcher}>
                             <button className="w-[160px] border-solid relative h-[48px] border-[1.5px] hover:bg-black hover:text-white  text-black border-black font-Manrope-Bold text-[13px] leading-normal tracking-[1px]">SEE PRODUCT</button>
                         </Link>
                    </section> 

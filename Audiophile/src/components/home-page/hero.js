@@ -17,8 +17,8 @@ export default function Hero(){
     const media = QueryMedia(matchesSM, matchesMD, matchesXL)
 
    //changes redux state value of current product id to be displayed on product page
-    function dispatcher(id){
-       return dispatch(changePage(id))
+    function dispatcher(slug){
+       return dispatch(changePage(slug))
     }
 
     //Contents on homePages' hero section
@@ -33,7 +33,7 @@ export default function Hero(){
                 </p>
             </article>
             <Link to='/headphones/xx99-mark-two-headphones'>
-                <SeeProduct text={'SEE PRODUCT'} event={()=>dispatcher('xx99-mark-two-headphones')}/>
+                <SeeProduct text={'SEE PRODUCT'} event={dispatcher('xx99-mark-two-headphones')}/>
             </Link>
 
         </section>

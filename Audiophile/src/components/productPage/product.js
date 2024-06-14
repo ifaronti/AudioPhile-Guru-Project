@@ -30,8 +30,8 @@ export default function ProductPage(){
             <div role='presentation' className="w-full sm:h-[90px] xl:h-[97px] bg-black"></div>
             <section className="w-fit mx-auto">{loading? loadingEffect : <ProductPageCard/>}</section>
             <section className="w-fit mx-auto">{loading? 'Please Wait...' : <FeaturesInBox/>}</section>
-            <section className="mx-auto">{loading? 'Please Wait...': <ProductImages/>}</section>
-            <section className="w-fit mx-auto ">{loading? 'Please Wait...': <MayLike/>}</section>
+            <section className="mx-auto">{loading? '': <ProductImages/>}</section>
+            <section className="w-fit mx-auto ">{loading? '': <MayLike/>}</section>
             <section className="mx-auto w-fit"><HomeSection2/></section>
             <BestGear/>
             <Footer/>

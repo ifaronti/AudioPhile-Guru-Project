@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Logo from "./logo";
 import Cart from "./cart";
-import { modal2 } from "../checkout/checkoutExports";
 import HomeSection2 from "../home-page/section2";
 import { useState } from "react";
 
@@ -12,10 +11,10 @@ export default function NavBar(){
 
     //toggle bars for mobile menu
     const toggleBars =
-            <button onClick={()=>setToggle(!toggle)} className="flex group mr-[49px] xl:hidden flex-col gap-[4px]">
-                <div role="presentation" className={`w-[16px] h-[3px] transition duration-150 ease-out ${toggle ? "rotate-45 translate-y-[-1px]": ''} bg-white`}></div>
-                <div role="presentation" className={`w-[16px] h-[3px] bg-white ${toggle ? 'hidden':''}`}></div>
-                <div role="presentation" className={`w-[16px] h-[3px] transition duration-150 ease-out ${toggle ? "rotate-[-60deg] translate-x-1/10 -translate-y-2 ": ''}  bg-white`}></div>
+            <button onClick={()=>setToggle(!toggle)} className="flex group xl:hidden flex-col gap-[4px]">
+                <span role="presentation" className={`w-[16px] h-[3px] transition duration-150 ease-out ${toggle ? "rotate-45 translate-y-[-1px]": ''} bg-white`}></span>
+                <span role="presentation" className={`w-[16px] h-[3px] bg-white ${toggle ? 'hidden':''}`}></span>
+                <span role="presentation" className={`w-[16px] h-[3px] transition duration-150 ease-out ${toggle ? "rotate-[-60deg] translate-x-1/10 -translate-y-2 ": ''}  bg-white`}></span>
             </button>
 
     const mobMen = <HomeSection2/>
@@ -31,9 +30,9 @@ export default function NavBar(){
     return (
         <div role='presentation'>
             <nav className="flex h-[25px] mx-auto sm:px-[40px] xl:px-[unset] xl:mb-[36px] mt-[32px] xl:h-[28px] content-between relative sm:w-full xl:w-[1110px]">
-                <div role='presentation' className="flex mr-auto xl:gap-[197px] items-center content-between">
+                <div role='presentation' className="flex mr-auto sm:w-full xl:w-[unset] xl:gap-[197px] relative items-center content-between">
                     {toggleBars}
-                    <Logo/>
+                    <div role="presentation" className="relative sm:w-fit xl:mx-[unset] sm:mx-auto xl:w-[unset]"><Logo/></div>
                     {navLinks}
                 </div>
                 <Cart/>
@@ -42,10 +41,10 @@ export default function NavBar(){
             {        
                 toggle && 
                 <div role='presentation' className="xl:hidden z-[3000] sm:top-24 md:top-40 w-full fixed">
-                    <div role='presentation' className="block relative bg-white sm:py-[35px] xl:max-w-[689px] sm:w-full sm:h-[730px] mx-auto md:h-[340px] rounded-lg md:py-[70px]">
+                    <div role='presentation' className="block relative z-[2900] bg-white sm:py-[35px] xl:max-w-[689px] sm:w-full sm:h-[730px] mx-auto md:h-[340px] rounded-lg md:py-[70px]">
                         <section onClick={()=>setToggle(false)} className="w-fit mx-auto">{mobMen}</section>
                     </div>
-                    {modal2}
+                    <div role="presentation" className="h-[100vh] top-[4rem] z-[1800] w-full fixed bg-black opacity-45"></div>
                 </div>
             }
         </div>

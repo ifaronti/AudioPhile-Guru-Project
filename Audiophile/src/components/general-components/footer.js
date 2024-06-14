@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 export default function Footer(){
     const navLinks = 
         <div role='presentation' className="inline-flex justify-center w-[429px] md:flex-row mx-auto sm:gap-[16px] sm:flex-col items-center pr-0 xl:flex-row md:gap-[34px]">
-            <Link to='/'><ul className="list-none"><li className="hover:text-[#D87D4A]  font-Manrope-Bold cursor-pointer text-[13px] tracking-[2px] text-[#ffffff]">HOME</li></ul></Link>
+            <Link to='/'><ul onClick={()=>window.scrollTo(0,{behaviour:'smooth'})} className="list-none"><li className="hover:text-[#D87D4A]  font-Manrope-Bold cursor-pointer text-[13px] tracking-[2px] text-[#ffffff]">HOME</li></ul></Link>
             <Link to='/headphones'><ul className="list-none"><li className="hover:text-[#D87D4A]  font-Manrope-Bold cursor-pointer text-[13px] tracking-[2px] text-[#ffffff]">HEADPHONES</li></ul></Link>
             <Link to='/speakers'><ul className="list-none"><li className="hover:text-[#D87D4A]  font-Manrope-Bold cursor-pointer text-[13px] tracking-[2px] text-[#ffffff]">SPEAKERS</li></ul></Link>
             <Link to='/earphones'><ul className="list-none"><li className="hover:text-[#D87D4A]  font-Manrope-Bold cursor-pointer text-[13px] tracking-[2px] text-[#ffffff]">EARPHONES</li></ul></Link>

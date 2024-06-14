@@ -84,6 +84,8 @@ export const modal2 =
 export const icon = <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg"><g fill="none" fillRule="evenodd"><circle fill="#D87D4A" cx="32" cy="32" r="32"/><path stroke="#FFF" strokeWidth="4" d="m20.754 33.333 6.751 6.751 15.804-15.803"/></g></svg>
 
 
+
+
 /*The below is a version of checkou summaryItems but with some differences making summaryItem
   thus not reusable
 */
@@ -107,6 +109,8 @@ export const checkOutModalItems = (name, price, quantity, slug, key)=>{
 }
 
 
+
+
 //below is the confirmation h1 and note.
 export const confirmationNotes = 
             <article className="flex flex-col md:w-[444px] md:items-stretch sm:w-[263px] relative mx-auto sm:gap-[16px] md:gap-[24px]">
@@ -124,6 +128,8 @@ export const theGrand = (total)=>{
     )
 }
 
+
+
 //cashNote is displayed when the cash option is selected as payment
 export const cashNote = 
         <div role='presentation' className="w-fit mt-[24px] items-center mx-auto flex relative sm:flex-col md:flex-row sm:gap-[24px] md:gap-[32px]">
@@ -134,6 +140,9 @@ export const cashNote =
                 correct so that your order will not be cancelled.
             </p>
         </div>
+
+
+
 
 export const costs = (total, cartItems, VAT, shipping)=>{
     return [{name:'TOTAL', value:`$ ${total}`}, 
@@ -148,6 +157,9 @@ export const costs = (total, cartItems, VAT, shipping)=>{
             )
         })
 }
+
+
+
 
 //Below is the cart modal background component
 export default function Modal1(){
