@@ -16,8 +16,10 @@ export default function CartItems(){
     const cartId = useSelector(state=>state.cartId.value) || localStorage.getItem('cartId')
     const cartItems = useSelector(state=>state.baseCart.value)
 
-    const buttonLoader = <Oval visible={true} height="15" width="15" color="white" ariaLabel="oval-loading" wrapperStyle={{}} wrapperClass="" />
-
+    const buttonLoader = 
+        <div className='w-fit mx-auto'>
+            <Oval visible={true} height="15" width="15" color="white" ariaLabel="oval-loading" wrapperStyle={{}} wrapperClass="" />
+        </div>
     //checkout button to direct users to checkoutPage
     const theDispatcher = ()=>{
         dispatch(showModal(false))
