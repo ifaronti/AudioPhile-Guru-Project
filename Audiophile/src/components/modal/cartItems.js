@@ -58,7 +58,7 @@ export default function CartItems(){
     const cart =  
         <div role='presentation' className="bg-white relative z-[150] items-center sm:w-[327px] md:mx-[unset] flex-shrink-0 sm:mx-auto md:w-[377px] rounded-lg pt-[32px] flex flex-col gap-[32px]">
             <header className="flex w-[313px] sm:px-[1.3rem] md:px-[unset] mx-auto content-between">
-                <h1 className="font-Manrope-Bold mr-auto text-[18px] tracking-[1.29px]">CART ({loading ? cartItems?.length:'...'})</h1>
+                <h1 className="font-Manrope-Bold mr-auto text-[18px] tracking-[1.29px]">CART ({loading ? '...':cartItems?.length})</h1>
                 <button disabled={cartItems?.length <1 ? true: false} onClick={deleteCart} className="f font-Maronpe-Medium opacity-50 text-[15px] hover:opacity-100 hover:text-[#D87D4A] leading-[25px] text-black">Remove all</button>
             </header>
             {loading? loadingEffects:<Items />}
