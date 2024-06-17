@@ -26,7 +26,7 @@ export default function ProductPage(){
     },[])
 
     return(
-        <main className='sm:w-full mx-auto xl:w-[1440px] content-center items-center flex flex-col xl:gap-[160px] md:gap-[120px] sm:gap-[88px]'>
+        <div role='presentation' className='sm:w-full mx-auto xl:w-[1440px] content-center items-center flex flex-col xl:gap-[160px] md:gap-[120px] sm:gap-[88px]'>
             <div role='presentation' className="w-full sm:h-[90px] xl:h-[97px] bg-black"></div>
             <section className="w-fit mx-auto">{loading? loadingEffect : <ProductPageCard/>}</section>
             <section className="w-fit mx-auto">{loading? 'Please Wait...' : <FeaturesInBox/>}</section>
@@ -35,6 +35,6 @@ export default function ProductPage(){
             <section className="mx-auto w-fit"><HomeSection2/></section>
             <BestGear/>
             <Footer/>
-        </main>
+        </div>
     )
 }

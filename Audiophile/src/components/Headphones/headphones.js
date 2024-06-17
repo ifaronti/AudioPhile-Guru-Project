@@ -8,8 +8,7 @@ import Category from '../general-components/dynamicCat'
 export default function HeadphonePage(){
 
     return(
-            <main className='relative w-full'>
-                
+            <div role='presentation' className='relative w-full'>
                 <CatHero headerText={'HEADPHONES'}/>
                 <section className='sm:mt-[64px] md:mt-[120px] xl:mt-[160px] xl:gap-[160px] flex flex-col sm:gap-[120px]'>
                     <Category category='headphones' id='ch10'/>
@@ -17,7 +16,7 @@ export default function HeadphonePage(){
                     <BestGear/>
                     <Footer/>
                 </section>
-            </main>
+            </div>
         
     )
 }

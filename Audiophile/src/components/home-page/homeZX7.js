@@ -1,6 +1,6 @@
 import { changePage } from "../features/pageSlice";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "@mui/material";
 import {QueryMedia} from '../general-components/mediaQuery'
 import { motion } from "framer-motion";
@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 //section3's speaker ZX7 using material UI's useMediaQuery to determine image path
 export default function ZX7(){
     const dispatch = useDispatch()
+    const goTo = useNavigate()
 
     const matchesSM = useMediaQuery('(max-width:700px)')
     const matchesMD = useMediaQuery('(max-width:1149px)')
@@ -17,6 +18,7 @@ export default function ZX7(){
 
     const dispatcher = ()=>{
         dispatch(changePage('zx7-speaker'))
+        goTo('/speakers/zx7-speaker')
         window.scrollTo(0, 0,{  behavior: 'smooth' })
         return
     }
@@ -28,9 +30,7 @@ export default function ZX7(){
                 
                 <article className="xl:ml-[95px] left-[2px] top-[97px] relative md:ml-[62px] sm:ml-[24px]">
                     <h4 className="relative top-[2px] font-Manrope-Bold tracking-[2px] m leading-normal text-black text-[28px] mb-[32px]">ZX7 SPEAKER</h4>
-                    <Link to={'/speakers/zx7-speaker'} onClick={dispatcher}>
-                        <button className="w-[160px] border-solid relative h-[48px] border-y-[1.5px] border-x-[1.5px] text-black border-y-black border-x-black border-black font-Manrope-Bold hover:bg-black z-50 hover:text-white cursor-pointer text-[13px] leading-normal tracking-[1px]">SEE PRODUCT</button>
-                    </Link>
+                    <button onClick={dispatcher} className="w-[160px] border-solid relative h-[48px] border-y-[1.5px] border-x-[1.5px] text-black border-y-black border-x-black border-black font-Manrope-Bold hover:bg-black z-50 hover:text-white cursor-pointer text-[13px] leading-normal tracking-[1px]">SEE PRODUCT</button>
                 </article>
             </section>
         </motion.div>

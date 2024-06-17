@@ -40,7 +40,6 @@ export default function Summary(){
         }
         localStorage.removeItem('cartId')
         localStorage.removeItem('cartOwner')
-        localStorage.removeItem('current')
         window.scrollTo(0, 0,{  behavior: 'smooth' })
     }
 
@@ -58,7 +57,6 @@ export default function Summary(){
         }
         dispatch(checkModal(true))
         deleteCart()
-        window.location.reload()
     }
 
     //the below 4 consts calculates all payments and adds them all to the grandTotal 

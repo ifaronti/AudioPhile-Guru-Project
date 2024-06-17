@@ -8,7 +8,7 @@ export default function Earphones(){
     
 //This is the category page for earphones
     return(
-        <main className='relative w-full'>
+        <div role='presentation' className='relative w-full'>
             <CatHero headerText={'EARPHONES'}/>
             <section className='sm:mt-[64px] md:mt-[120px] xl:mt-[160px] flex flex-col xl:gap-[160px] sm:gap-[120px]'>
                 <Category category={'earphones'} id={'ch12'}/>
@@ -16,6 +16,6 @@ export default function Earphones(){
                 <BestGear/>
                 <Footer/>
             </section>
-        </main>
+        </div>
     )
 }

@@ -49,7 +49,6 @@ export default function CartItems(){
         }
         localStorage.removeItem('cartId')
         localStorage.removeItem('cartOwner')
-        localStorage.removeItem('current')
         dispatch(showModal(false))
         dispatch(changeInCart(false))
         window.location.reload()

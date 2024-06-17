@@ -8,12 +8,12 @@ import Hero from "./hero";
 export default function HomePage(){
 
     return(
-        <main className="w-[full] relative flex flex-col sm:gap-[120px] md:gap-[96px] xl:gap[120px] items-center content-center p-0">
+        <div role="presentation" className="w-[full] relative flex flex-col sm:gap-[120px] md:gap-[96px] xl:gap[120px] items-center content-center p-0">
             <Hero/>
             <section className="xl:mb-[48px] sm:mt-[-80px] md:mt-[unset]"><HomeSection2/></section>
             <HomeSection3/>
             <section className="xl:mt-[80px] xl:mb-[80px] sm:mt-0 sm:mb-[unset]"><BestGear/></section>
             <Footer/>
-        </main >
+        </div >
     )
 }

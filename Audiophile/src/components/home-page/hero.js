@@ -1,12 +1,13 @@
 import SeeProduct from "../general-components/productBtn"
 import { useDispatch } from "react-redux"
 import { changePage } from "../features/pageSlice"
-import { Link } from "react-router-dom"
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { QueryMedia } from "../general-components/mediaQuery"
+import { useNavigate } from "react-router-dom";
 
 export default function Hero(){
     const dispatch = useDispatch()
+    const goTo = useNavigate()
 
     //
     const matchesSM = useMediaQuery('(max-width:480px)')
@@ -18,7 +19,9 @@ export default function Hero(){
 
    //changes redux state value of current product id to be displayed on product page
     function dispatcher(slug){
-       return dispatch(changePage(slug))
+        dispatch(changePage(slug))
+        goTo('/headphones/xx99-mark-two-headphones')
+        return
     }
 
     //Contents on homePages' hero section
@@ -32,10 +35,7 @@ export default function Hero(){
                     made for the passionate music enthusiast.
                 </p>
             </article>
-            <Link to='/headphones/xx99-mark-two-headphones'>
-                <SeeProduct text={'SEE PRODUCT'} event={dispatcher('xx99-mark-two-headphones')}/>
-            </Link>
-
+            <SeeProduct text={'SEE PRODUCT'} event={()=>dispatcher('xx99-mark-two-headphones')}/>
         </section>
 
     const heroSection = 

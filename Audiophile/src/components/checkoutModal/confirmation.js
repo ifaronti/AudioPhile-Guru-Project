@@ -18,6 +18,7 @@ export default function Confirmation(){
     const dispatcher = ()=>{
         dispatch(checkModal(false))
         goTo('/')
+        window.location.reload()
         return
     }
 

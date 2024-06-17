@@ -1,13 +1,14 @@
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { changePage } from "../features/pageSlice";
 import { useMediaQuery } from "@mui/material";
 import {QueryMedia} from '../general-components/mediaQuery'
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router";
 
 //section3's earphone YX1 using material UI's useMediaQuery to determine image path
 export default function YX1(){
     const dispatch = useDispatch()
+    const goTo = useNavigate()
 
     const matchesSM = useMediaQuery('(max-width:699px)')
     const matchesMD = useMediaQuery('(max-width:1149px)')
@@ -17,6 +18,7 @@ export default function YX1(){
 
     const dispatcher = ()=>{
         dispatch(changePage('yx1-earphones'))
+        goTo('/earphones/yx1-earphones')
         window.scrollTo(0, 0,{  behavior: 'smooth' })
         return
     }
@@ -28,10 +30,7 @@ export default function YX1(){
                 <article className="rounded-lg relative gap-[32px] p-0 bg-[#f1f1f1] flex-shrink-0 xl:w-[540px] md:w-[339px] flex flex-col sm:h-[200px] sm:w-[327px] md:h-[320px]">
                     <section className="flex w-fit h-fit sm:mx-auto my-auto xl:mx-[95px] flex-col gap-[32px]">
                         <h5 className="relative font-Manrope-Bold md:mx-auto tracking-[2px] leading-normal text-black text-[28px]">YX1 EARPHONES</h5>
-                        
-                        <Link to={'/earphones/yx1-earphones'} onClick={dispatcher}>
-                            <button className="w-[160px] border-solid relative h-[48px] border-[1.5px] hover:bg-black hover:text-white  text-black border-black font-Manrope-Bold text-[13px] leading-normal tracking-[1px]">SEE PRODUCT</button>
-                        </Link>
+                        <button onClick={dispatcher} className="w-[160px] border-solid relative h-[48px] border-[1.5px] hover:bg-black hover:text-white  text-black border-black font-Manrope-Bold text-[13px] leading-normal tracking-[1px]">SEE PRODUCT</button>
                    </section> 
                 </article>
         </section>

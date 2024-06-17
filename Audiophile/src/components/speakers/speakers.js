@@ -8,7 +8,7 @@ import Category from '../general-components/dynamicCat'
 export default function Speakers(){
     
     return(
-        <main className='relative w-full'>
+        <div role='presentation' className='relative w-full'>
             <CatHero headerText={'SPEAKERS'}/>
             <section className='sm:mt-[64px] md:mt-[120px] xl:mt-[160px] xl:gap-[160px] relative flex flex-col sm:gap-[120px]'>
                 <Category category={'speakers'} id={'ch5'}/>
@@ -16,6 +16,6 @@ export default function Speakers(){
                 <BestGear/>
                 <Footer/>
             </section>
-        </main>
+        </div>
     )
 }

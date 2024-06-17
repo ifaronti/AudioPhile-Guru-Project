@@ -1,6 +1,6 @@
 import { changePage } from "../features/pageSlice";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "@mui/material";
 import { QueryMedia } from "../general-components/mediaQuery";
 import { motion } from "framer-motion";
@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 //section3's speaker ZX9 using material UI's useMediaQuery to determine image path
 export default function ZX9(){
     const dispatch = useDispatch()
+    const goTo = useNavigate()
     const patternImg = <img src={`${process.env.PUBLIC_URL}/assets/home/desktop/pattern-circles.svg`} alt="circles"/>
 
     const matchesSM = useMediaQuery('(max-width:700px)')
@@ -18,6 +19,7 @@ export default function ZX9(){
 
     const dispatcher = ()=>{
         dispatch(changePage('zx9-speaker'))
+        goTo('/speakers/zx9-speaker')
         window.scrollTo(0, 0,{  behavior: 'smooth' })
         return
     }
@@ -35,9 +37,7 @@ export default function ZX9(){
                         built to deliver truly remarkable sound.
                     </p>
                     <div role='presentation' className="sm:mx-auto w-fit xl:mx-[unset]">
-                        <Link to={'/speakers/zx9-speaker'} onClick={dispatcher} >
-                            <button className="w-40 z-[200] font-Manrope-Bold leading-normal hover:bg-[#4c4c4c] tracking-[1px] text-white text-[13px] h-12 bg-black">SEE PRODUCT</button>
-                        </Link>
+                        <button onClick={dispatcher} className="w-40 z-[200] font-Manrope-Bold leading-normal hover:bg-[#4c4c4c] tracking-[1px] text-white text-[13px] h-12 bg-black">SEE PRODUCT</button>
                     </div>
                 </div>
             </article>
