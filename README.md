@@ -35,7 +35,7 @@ Users should be able to:
 - Live Site URL: [Netlify](https://ifasaudiophile.netlify.app/)
 
 ## My process
-This is a huge step for me in programming so I took my time learning the ropes. I made an error in the frontend dev by not looking at all the designs in the figma file. I was selecting a page design then flowing with that until I realized how much of the big picture could use reuseable components and so there goes my innitial start up of the project; all trashed(especially the css).
+I was selecting a page design then flowing with that until I realized how much of the big picture could use reuseable components and so there goes my innitial start up of the project; all trashed(especially the css).
 
 After my war with the design figma was won, I went down the rabit hole where no rabits can survive:
 
@@ -61,12 +61,9 @@ After my war with the design figma was won, I went down the rabit hole where no 
 
   - Once the laziness cost me 4-5 days of agonizing self kicking, I finally deployed my API to lambda
 
-  - After API deployment, I returned to my frontend code base, concealed my API URLs changed the axios.method urls to my API endpoints', refactored some of my codes and finished by adding framer-motion scroll effects to some of my components. 
+  - After API deployment, I returned to my frontend code base, changed the axios.method urls to my API endpoints', refactored some of my codes and finished by adding framer-motion scroll effects to some of my components. 
 
   - Even as I type this, I'm still going to check for how I'm going to better my code base and improve anything. Although this is a big  project, I feel like there's a way to avoid each child components making API calls independently. But it is what it is; have to ensure page refresh by user doesn't affect access to data by child components!!
-
-  ### Update
-  I removed many API calls from my codeBase and used my APP.js file to make 2 API calls for everywhere the calls were removed unless the component really needs to make the call. Now, all components can access data straight from the parent component(APP.js) unless where I used props just for practice.
 
   I also used react-loader-spinner to delay components' rendering by 1 second so all parts of component already recieved data before rendering.
 
@@ -90,10 +87,10 @@ After my war with the design figma was won, I went down the rabit hole where no 
 - [React-loader-spinner](https://mhnpd.github.io/react-loader-spinner/docs/components/rotating-lines)
 
 ### What I learned
-I learned express.js API deployment to serverless service(lambda), I practiced use of framer-motion.
+I learned express.js API deployment to serverless lambda, I practiced use of framer-motion.
 
 ### Continued development
-With this project, I have officially welcomed myself to the fullstack community. I will continue practicing fullstack application devs, getting better with aws(there's so much to learn about the service). 
+Anything learnable.
 
 ### Useful resources
 
@@ -103,4 +100,4 @@ With this project, I have officially welcomed myself to the fullstack community.
 - Ifarontimi Akeem And All My Names
 
 ## Acknowledgments
-Thanks to Frontend Mentor, freeCodeCamp and John Smilga. A special thanks especially to John Smilga for his tutorial on node/express. That was very comprehensive. I felt confident enough to practice backend coding after watching the two parts of the freeCodeCamp tutor's videos. I added my understanding to it and my confidence level in backend is through the roof thanks to the above mentioned people/entities.
+Thanks to Frontend Mentor, freeCodeCamp and John Smilga. A special thanks especially to John Smilga for his tutorial on node/express. That was very comprehensive. I added my understandings to it and my confidence level in backend is through the roof thanks to the above mentioned people/entities.
